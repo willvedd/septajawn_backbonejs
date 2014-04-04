@@ -10,12 +10,13 @@
 	<div id="wrapper">
 	<button class="reset">RESET</button>
 		<ul id="scheduleDiv"></ul>
-		
+		<select id="start_dest" class="btn-gropu">
 		<script id="stationTemplate" type="text/template">
-			<%= name %>
-			<button class="delete">Delete</button>
-			<button class="edit">Edit</button>
+			
+				<option value="<%= id %>"><%= name %></option>
+			
 		</script>
+		</select>
 		</div>
 </body>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>

@@ -28,11 +28,11 @@ var stations = new StationList();
 
 var StationView = Backbone.View.extend({
 
-	tagName: 'li',
+	tagName: 'option',
 
 	template: _.template( $('#stationTemplate').html()),
 
-	className: "station station12312",
+	className: "station",
 
 	initialize: function(res){
 		console.log("Station view initialized");
@@ -66,14 +66,13 @@ var StationView = Backbone.View.extend({
 
 var StationListView = Backbone.View.extend({
 	
-	el: '#wrapper',
-	tagName: 'ul',
+	el: '#start_dest',
+	tagName: 'select',
 
 	intialize: function(){
 		console.log(this.collection);
 	},
 	render: function(){
-		console.log("StationListView Rendered");
 		this.collection.each(function(station){
 			var stationView = new StationView({model:station});
 			this.$el.append(stationView.el);
@@ -98,17 +97,7 @@ var StationListView = Backbone.View.extend({
 
 stations.fetch({
 	success: function(){
-		for(i=0;i<stations.length;i++){
-			console.log();	
-		};
-		/*stations.each( function(model){
-			if(model.get('line')=="bs"){
-				console.log(model.get('name'))
-			}
-			else{
-				console.log("Not broad street");
-			}
-		});//won't execute, models not ready in time*/
+		console.log("Successful fetch");
 	}
 });
 

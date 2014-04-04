@@ -1,3 +1,4 @@
+//-------------------------Model and Collection-----------------------------
 
 var Station = Backbone.Model.extend({
 	defaults : {
@@ -13,71 +14,80 @@ var Station = Backbone.Model.extend({
 	wk_sb : null,
 	close_wk : null,
 	close_end : null
- 	},
+ 	}
 });
 
 var StationList = Backbone.Collection.extend({
-	model:Station,
+	model: Station,
 	url: 'stations.json',
 });
 
-var fairmount = new Station ({
-	name: "Fairmount",
-	line: "bs",
-	order: 10,
-	id: "faimount"
-});
+var stations = new StationList();
 
+//----------------------- Station View -------------------------------
 
+var StationView = Backbone.View.extend({
 
+	tagName: 'li',
 
+	template: _.template( $('#stationTemplate').html()),
 
-
-
-var ScheduleView = Backbone.View.extend({
-
-	el: '#schedule_container',
-
-	//template: _.template($('#scheduleTemplate').html()),
-
-	initialize: function(){
-		console.log("View initialized");
+	initialize: function(res){
+		console.log("Station view initialized");
 		this.render();
 	},
 	render: function(eventName) {
-   /*     _.each(this.model.models, function(station){
-            var scheduleTemplate = this.template(profile.toJSON());
-            $(this.el).append(scheduleTemplate);
-        }, this);
-
-        return this;*/
-        console.log("render")
+		this.$el.html( this.template(this.model.toJSON()));
+        return this;
     },
-	events: {
-		'click': "reset"
+    //template: _.template( $('#scheduleDiv').html()),
+});
+
+//---------------------Stations View---------------------------------
+
+
+var StationListView = Backbone.View.extend({
+	
+	el: '#scheduleDiv',
+	tagName: 'ul',
+
+	intialize: function(){
+		console.log(this.collection);
 	},
-	reset: function(){
-		console.log("doReset");
+	render: function(){
+		console.log("StationListView Rendered");
+		this.collection.each(function(station){
+			var stationView = new StationView({model:station});
+			this.$el.append(stationView.el);
+		},this);//"This" loses reference inside loop, regains it with appended ",this"
+
+		return this;
+	}
+})
+
+//---------------------Test Code---------------------------------
+
+stations.fetch({
+	success: function(){
+		for(i=0;i<stations.length;i++){
+			console.log();	
+		};
+		/*stations.each( function(model){
+			if(model.get('line')=="bs"){
+				console.log(model.get('name'))
+			}
+			else{
+				console.log("Not broad street");
+			}
+		});//won't execute, models not ready in time*/
 	}
 });
 
-var stations = new StationList();
-var schedule = new ScheduleView({model:stations});
 
 
-stations.fetch();
-
-stations.bind('reset', function(){
-	console.log("schedule.render()");
-	schedule.render();
-});
-
-stations.each( function(model){
-	console.log(model.get('name'));
-});//won't execute, models not ready in time
-
-
-
+$(function(){
+   schedule = new StationListView({collection:stations})
+ })
 
 
 

@@ -32,6 +32,8 @@ var StationView = Backbone.View.extend({
 
 	template: _.template( $('#stationTemplate').html()),
 
+	
+
 	initialize: function(res){
 		console.log("Station view initialized");
 		this.render();
@@ -40,6 +42,19 @@ var StationView = Backbone.View.extend({
 		this.$el.html( this.template(this.model.toJSON()));
         return this;
     },
+    events: {
+    	'click .delete': 'delete',
+    	'click .edit': 'edit',
+    },
+    
+    delete: function(){
+    	console.log("Delete");
+    },
+
+    edit: function(){
+    	console.log("Edit");
+    },
+
     //template: _.template( $('#scheduleDiv').html()),
 });
 
@@ -48,7 +63,7 @@ var StationView = Backbone.View.extend({
 
 var StationListView = Backbone.View.extend({
 	
-	el: '#scheduleDiv',
+	el: 'body',
 	tagName: 'ul',
 
 	intialize: function(){
@@ -62,7 +77,17 @@ var StationListView = Backbone.View.extend({
 		},this);//"This" loses reference inside loop, regains it with appended ",this"
 
 		return this;
-	}
+	},
+	
+	events: {
+    	'click .reset': 'reset',
+    },
+
+	reset: function(){
+    	console.log("RESET!");
+    	//StationView.$el.empty()
+    },
+
 })
 
 //---------------------Test Code---------------------------------

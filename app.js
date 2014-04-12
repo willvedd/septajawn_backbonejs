@@ -1,5 +1,5 @@
 //-------------------------Model and Collection-----------------------------
-
+console.time('load');
 var Station = Backbone.Model.extend({
     defaults: {
         id: null,
@@ -126,7 +126,7 @@ var GlobalView = Backbone.View.extend({
 
 
     schedule: function(start,end){
-
+    	console.time('schedule');
         if(start.get('order')<end.get('order')){
             var dir = 'sb';
         }
@@ -156,10 +156,8 @@ var GlobalView = Backbone.View.extend({
             };
         };
 
-        console.log(start_schedule);
-        console.log(end_schedule);
-
         schedule.render(start,end,day());
+        console.timeEnd('schedule');
     },
 
     reset: function() {
@@ -221,9 +219,13 @@ $(function() {
         el: '#end_dest'
     });
 
+	console.time('make view');
     global = new GlobalView();
+    console.timeEnd('make view');
 
     schedule = new ScheduleView();
+
+    console.timeEnd('load');
 });
 
 

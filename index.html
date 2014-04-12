@@ -12,10 +12,11 @@
 		<ul id="scheduleDiv"></ul>
 			<input type="radio" class="line" name="line" value="bs" checked='true'>BSL<br>
 			<input type="radio" class="line" name="line" value="mf">MFL
+
 		<select id="start_dest" class="btn-gropu">
-		<script id="stationTemplate" type="text/template">
-			<%= name %>
-		</script>
+			<script id="stationTemplate" type="text/template">
+				<%= name %>
+			</script>
 		</select>
 
 		<select id="end_dest" class="btn-gropu">
@@ -28,19 +29,20 @@
 
 		<div id="scheduleTable">
 			<script id="scheduleTemplate" type="text/template">
-				<h2><%= start_station.get('name') %></h2>
-				<ul>
-				<% _.each(start_schedule, function(num) { %>
-           			<li><%= num %></li>
-      			 <% }) %>
-      			 </ul>
-
-				<h2><%= end_station.get('name') %></h2>
-				<ul>
-				<% _.each(end_schedule, function(num2) { %>
-           			<li><%= num2 %></li>
-      			 <% }) %>
-      			 </ul>
+				<table>
+					<tr>
+						<td><%= start_station.get('name') %></td>
+						<td><%= end_station.get('name') %></td>
+					<tr>
+				</table>
+				<table>
+					<% for(i=0;i<start_schedule.length;i++){ %>
+						<tr>
+							<td><%=start_schedule[i]%></td>
+							<td><%=end_schedule[i]%></td>
+						</tr>
+	           		<% } %>
+      			 </table>
 			</script>
 		</div>
 		</div>

@@ -1,51 +1,111 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Septabone</title>
-
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="css/formalize.css" rel="stylesheet">
+	<link href="css/normalize.css" rel="stylesheet">
+	<link href="css/foundation.css" rel="stylesheet">
+	<link href="css/styles.css" rel="stylesheet">
+	<title>Septabone</title>
 </head>
 <body>
 	<div id="wrapper">
-	<button class="reset">RESET</button>
-		<ul id="scheduleDiv"></ul>
-			<input type="radio" class="line" name="line" value="bs" checked='true'>BSL<br>
-			<input type="radio" class="line" name="line" value="mf">MFL
+		<nav>
+			<div class="row">
+				<div class="large-offset-1 large-10 medium-offset-1 medium-10 columns">
+	    			<span class="name branding">Septajawn</span>
+	    		</div>
+	    	</div>
+		</nav>
+		<div class="platter vert_center">
+			<div class="row">
+				<div class="large-4 large-centered medium-centered columns">
+					<div class="center">
+						<span class="station_label label1 bs">BSL</span>
+						<div class="switch-wrapper">
+							<form>
+								<div class="onoffswitch">
+								    <input type="checkbox" class="onoffswitch-checkbox line1" id="myonoffswitch">
+								    <label class="onoffswitch-label" for="myonoffswitch">
+								        <div class="onoffswitch-inner"></div>
+								        <div class="onoffswitch-switch"></div>
+								    </label>
+								</div>
+								
+							</form>
+						</div>
+						<span class="station_label label2">MFL</span>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="large-offset-2 large-4 medium-offset-2 medium-4 columns">
+					<div class="center">
+						<select id="start_dest" class="btn-gropu">
+							<option value="" disabled="disabled" selected="selected">Starting from...</option>
+							<script id="stationTemplate" type="text/template">
+								<%= name %>
+							</script>
+						</select>
+					</div>
+				</div>
+				<div class="large-4 medium-4 end columns">
+					<div class="center">
+						<select id="end_dest" class="btn-gropu">
+							<option value="" disabled="disabled" selected="selected">Ending at...</option>
+							<script id="stationTemplate" type="text/template">
+								<%= name %>
+							</script>
+						</select>		
+					</div>
+				</div>
+			</div><!-- End row -->
+			<div class="row">
+				<div class="large-4 large-centered medium-4 medium-centered columns">
+					<a href="#bottom" class="submit">Route</a>
+				</div>
+			</div><!-- End row -->
+		</div><!-- End platter -->
 
-		<select id="start_dest" class="btn-gropu">
-			<script id="stationTemplate" type="text/template">
-				<%= name %>
+		<div class="row" id="toolbar">
+			<script type="text/template" id="toolbarTemplate">
+				<div class="large-11 large-centered medium-10 medium-centered columns">
+					<div class="toolbar">
+						<button class= "tool day" id="wk">Week</button>
+						<button class= "tool day" id="sat">Sat</button>
+						<button class= "tool day" id="sun">Sun</button>
+						<button class= "tool" id="rst"><span class="icon-ccw"></span></button>
+					</div>
+				</div>
 			</script>
-		</select>
+		</div><!--end toolbar row-->
 
-		<select id="end_dest" class="btn-gropu">
-			<script id="stationTemplate" type="text/template">
-				<%= name %>
-			</script>
-		</select>
-
-		<button class="submit">Submit</button>
-
-		<div id="scheduleTable">
+		<div class="row">
+			<div id="scheduleTable" class="large-11 large-centered medium-10 medium-centered columns">
 			<script id="scheduleTemplate" type="text/template">
-				<table>
+				<table class="table table-header">
 					<tr>
-						<td><%= start_station.get('name') %></td>
-						<td><%= end_station.get('name') %></td>
+						<td class="start_station station bs"><%= start_station.get('name') %></td>
+						<td class="station chevron bs"><img src="img/chevron.png"/></td>
+						<td class="end_station station bs"><%= end_station.get('name') %></td>
 					<tr>
 				</table>
-				<table>
-					<% for(i=0;i<start_schedule.length;i++){ %>
-						<tr>
-							<td><%=start_schedule[i]%></td>
-							<td><%=end_schedule[i]%></td>
-						</tr>
-	           		<% } %>
-      			 </table>
+				<div class="table-wrap">
+					<table class="table table-striped times">
+						<% for(i=0;i<start_schedule.length;i++){ %>
+							<tr>
+								<td><%=start_schedule[i]%></td>
+								<td><%=end_schedule[i]%></td>
+							</tr>
+		           		<% } %>
+      			 	</table>
+      			</div>
 			</script>
-		</div>
-		</div>
+			</div><!--end scheduleTable-->
+		</div><!--end row-->
+	</div><!--end wrapper-->
 </body>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" type="text/javascript"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.3/underscore-min.js" type="text/javascript"></script>

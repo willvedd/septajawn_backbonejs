@@ -1,0 +1,646 @@
+
+//Stylesheet for Septajawn, produced by Will Vedder
+
+/*==============================================*/
+/*================ Colors ======================*/
+/*==============================================*/
+
+$bg: #2a363b;
+$nav: #222b2f;
+$submit: #369350;
+$sept_orange: #f76225;
+$sept_blue: #0055a0;
+$table1:#f9f9f9;
+$table2:#e4e4e4;
+$reset:#a05553;
+$toolbar:#979797;
+$toolbar_active:#616060;
+$black: #000000;
+$white: #ffffff;
+$warning: #a1504d;
+$highlight: #FCFCB0;
+$switch_bg: #afaeae;
+
+
+/*==============================================*/
+/*================= Fonts ======================*/
+/*==============================================*/
+
+@font-face {
+  font-family: 'machinescript';
+  src: url('../fonts/machinescript.ttf'); /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'fontello';
+  src: url('../fonts/fontello.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.icon-star:before { content: '\e802'; } /* '' */
+.icon-star-empty:before { content: '\e803'; } /* '' */
+.icon-menu:before { content: '\e801'; } /* '' */
+.icon-ccw:before { content: '\e800'; } /* '' */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+  }
+
+/*==============================================*/
+/*=============== General ======================*/
+/*==============================================*/
+
+h1{
+	color: $white;
+}
+
+html, body
+{
+  height: 100%;
+}
+
+html{
+  background-color: $bg;
+}
+body{
+  background:none;
+  position: relative;
+}
+
+.center{
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+*:focus { outline: none; } /*removes blue glow from input*/
+
+/*==============================================*/
+/*=============== Nav/header ===================*/
+/*==============================================*/
+
+nav{
+  padding-top: 20px;
+  padding-bottom:20px;
+  margin-bottom:40px;
+  background-color: $nav;
+  .branding{
+    font-size: 2.5rem!important;
+    line-height: 42px;
+    font-family: 'machinescript',arial,sans-serif;
+    color: $white;
+  }
+  a{
+    color: $white;
+  }
+  .wrapper{
+    position: relative;
+    top: 30%;
+    -webkit-transform: translateY(-30%);
+    -ms-transform: translateY(-30%);
+    transform: translateY(-30%);
+    margin-left:auto;
+    margin-right:auto;
+    float: none;
+    max-width: 940px;
+  }
+}
+
+
+/*==============================================*/
+/*================= Picker =====================*/
+/*==============================================*/
+.platter{
+  
+  select{
+    font-size: 1.1rem;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    position: relative;
+
+  }
+  .add-on{
+    width: 40px;
+    height: 40px;
+    margin-top: 20px;
+    margin-bottom: 20px;  
+    padding: 0;
+  }
+}
+
+.vert_center{
+  position: absolute;
+  width: 100%;
+  top: 30%;
+}
+
+.overlay {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color:rgba(0, 0, 0, 0.65);
+    z-index:9999;
+}
+
+/*==============================================*/
+/*================ Buttons =====================*/
+/*==============================================*/
+
+button.hide{
+    display: none !important;
+}
+
+a.submit{
+    width: 100%;
+    border: 0 none;
+    border-radius: 2px 2px 2px 2px;
+    color: $white;
+    height: 75px;
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Arial,sans-serif;
+    font-size: 1.25rem;
+    font-weight: bold;
+    line-height: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding: 7px 10px;
+    text-transform: none;
+    transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -webkit-transition: all 0.3s ease 0s;
+    text-align: center; /* DELETE WHEN WIDTH AUTO */
+    background: none repeat scroll 0 0 $submit;
+    outline-color: transparent;
+    outline-style: none;
+    text-decoration: none;
+    
+    &:hover {
+      background: none repeat scroll 0 0 darken($submit,10%);
+      color: $white;
+    }
+    &:active{
+      background-color: darken($submit, 15%);
+    }
+}
+
+button.tool{
+  color: $white;
+  border: none;
+  width: 24%;
+  height: 50px;
+  float:left;
+  box-shadow: -1px 0 0 $toolbar_active;
+
+  &.day{
+    background-color: $toolbar;
+  }
+  &.active{
+    background-color: $toolbar_active !important;
+  }
+  &:hover{
+    background-color: darken($toolbar,1%);
+  }
+  &#rst{
+    background-color: $reset!important;
+    margin-left:4%;
+    box-shadow: none;
+    
+    &:hover{
+      background-color: darken($reset,15%)!important;
+    }
+  } 
+}
+
+.toolbar{
+  width: 100%;
+}
+
+
+/*==============================================*/
+/*=========== Results Table (mine) =============*/
+/*==============================================*/
+
+.table-header{
+  margin-top: 30px;
+  margin-bottom: 0 !important;
+
+  tr{
+    font-size: 1.1rem;
+  }
+   
+  td{
+    text-align: center;
+    width: 50%;
+  }
+  td.chevron{
+    width: 10%!important;
+    padding: 0;
+  }
+  td.station{
+    width: 45%;
+  }
+  
+
+  .station{
+    font-size: 1.4rem;
+    color: $white;
+  }
+  .mf{
+    background-color: $sept_blue!important;
+  }
+  .bs{
+    background-color: $sept_orange!important;
+  }
+}
+
+
+.table-wrap{
+  max-height: 400px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table_and_tools{
+  margin-top: 20px;
+  margin-bottom:0;
+}
+
+
+
+.times{
+  background-color: $white;
+  color: $black;
+
+  tr{
+    font-size: 1.1rem;
+  }
+  
+  td{
+    text-align: center;
+    width: 50%;
+  }
+
+}
+.warn{
+  color: $warning !important;
+  font-weight: bold;
+}
+
+.pointer{
+  background-color: $highlight !important;
+}
+
+@media only screen and (max-width: 40.062em){
+  
+  .table-wrap{
+      max-height: 1200px;
+    } /*keeps table fixed to bottom for most mobile devices*/
+
+}
+
+
+/*==============================================*/
+/*===== Results Table (twitter bootstrap) ======*/
+/*==============================================*/
+
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table-hide{
+  display: none;
+  }
+  table {
+    max-width: 100%;
+    background-color: transparent;
+}
+th {
+  text-align: left;
+}
+.table {
+  width: 100%;
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+}
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dddddd;
+}
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+.table > tbody + tbody {
+  border-top: 2px solid #dddddd;
+}
+.table .table {
+  background-color: $table1; //Inserted non-default color!
+}
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > td {
+  padding: 5px;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: $table2; //Inserted non-default color
+}
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+  background-color: #f5f5f5;
+}
+table col[class*="col-"] {
+  position: static;
+  float: none;
+  display: table-column;
+}
+table td[class*="col-"],
+table th[class*="col-"] {
+  position: static;
+  float: none;
+  display: table-cell;
+}
+.table > thead > tr > td.active,
+.table > tbody > tr > td.active,
+.table > tfoot > tr > td.active,
+.table > thead > tr > th.active,
+.table > tbody > tr > th.active,
+.table > tfoot > tr > th.active,
+.table > thead > tr.active > td,
+.table > tbody > tr.active > td,
+.table > tfoot > tr.active > td,
+.table > thead > tr.active > th,
+.table > tbody > tr.active > th,
+.table > tfoot > tr.active > th {
+  background-color: #f5f5f5;
+}
+.table-hover > tbody > tr > td.active:hover,
+.table-hover > tbody > tr > th.active:hover,
+.table-hover > tbody > tr.active:hover > td,
+.table-hover > tbody > tr.active:hover > th {
+  background-color: #e8e8e8;
+}
+.table > thead > tr > td.success,
+.table > tbody > tr > td.success,
+.table > tfoot > tr > td.success,
+.table > thead > tr > th.success,
+.table > tbody > tr > th.success,
+.table > tfoot > tr > th.success,
+.table > thead > tr.success > td,
+.table > tbody > tr.success > td,
+.table > tfoot > tr.success > td,
+.table > thead > tr.success > th,
+.table > tbody > tr.success > th,
+.table > tfoot > tr.success > th {
+  background-color: #dff0d8;
+}
+.table-hover > tbody > tr > td.success:hover,
+.table-hover > tbody > tr > th.success:hover,
+.table-hover > tbody > tr.success:hover > td,
+.table-hover > tbody > tr.success:hover > th {
+  background-color: #d0e9c6;
+}
+.table > thead > tr > td.info,
+.table > tbody > tr > td.info,
+.table > tfoot > tr > td.info,
+.table > thead > tr > th.info,
+.table > tbody > tr > th.info,
+.table > tfoot > tr > th.info,
+.table > thead > tr.info > td,
+.table > tbody > tr.info > td,
+.table > tfoot > tr.info > td,
+.table > thead > tr.info > th,
+.table > tbody > tr.info > th,
+.table > tfoot > tr.info > th {
+  background-color: #d9edf7;
+}
+.table-hover > tbody > tr > td.info:hover,
+.table-hover > tbody > tr > th.info:hover,
+.table-hover > tbody > tr.info:hover > td,
+.table-hover > tbody > tr.info:hover > th {
+  background-color: #c4e3f3;
+}
+.table > thead > tr > td.warning,
+.table > tbody > tr > td.warning,
+.table > tfoot > tr > td.warning,
+.table > thead > tr > th.warning,
+.table > tbody > tr > th.warning,
+.table > tfoot > tr > th.warning,
+.table > thead > tr.warning > td,
+.table > tbody > tr.warning > td,
+.table > tfoot > tr.warning > td,
+.table > thead > tr.warning > th,
+.table > tbody > tr.warning > th,
+.table > tfoot > tr.warning > th {
+  background-color: #fcf8e3;
+}
+.table-hover > tbody > tr > td.warning:hover,
+.table-hover > tbody > tr > th.warning:hover,
+.table-hover > tbody > tr.warning:hover > td,
+.table-hover > tbody > tr.warning:hover > th {
+  background-color: #faf2cc;
+}
+.table > thead > tr > td.danger,
+.table > tbody > tr > td.danger,
+.table > tfoot > tr > td.danger,
+.table > thead > tr > th.danger,
+.table > tbody > tr > th.danger,
+.table > tfoot > tr > th.danger,
+.table > thead > tr.danger > td,
+.table > tbody > tr.danger > td,
+.table > tfoot > tr.danger > td,
+.table > thead > tr.danger > th,
+.table > tbody > tr.danger > th,
+.table > tfoot > tr.danger > th {
+  background-color: #f2dede;
+}
+.table-hover > tbody > tr > td.danger:hover,
+.table-hover > tbody > tr > th.danger:hover,
+.table-hover > tbody > tr.danger:hover > td,
+.table-hover > tbody > tr.danger:hover > th {
+  background-color: #ebcccc;
+}
+@media (max-width: 767px) {
+  .table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #dddddd;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-responsive > .table {
+    margin-bottom: 0;
+  }
+  .table-responsive > .table > thead > tr > th,
+  .table-responsive > .table > tbody > tr > th,
+  .table-responsive > .table > tfoot > tr > th,
+  .table-responsive > .table > thead > tr > td,
+  .table-responsive > .table > tbody > tr > td,
+  .table-responsive > .table > tfoot > tr > td {
+    white-space: nowrap;
+  }
+  .table-responsive > .table-bordered {
+    border: 0;
+  }
+  .table-responsive > .table-bordered > thead > tr > th:first-child,
+  .table-responsive > .table-bordered > tbody > tr > th:first-child,
+  .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+  .table-responsive > .table-bordered > thead > tr > td:first-child,
+  .table-responsive > .table-bordered > tbody > tr > td:first-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+    border-left: 0;
+  }
+  .table-responsive > .table-bordered > thead > tr > th:last-child,
+  .table-responsive > .table-bordered > tbody > tr > th:last-child,
+  .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+  .table-responsive > .table-bordered > thead > tr > td:last-child,
+  .table-responsive > .table-bordered > tbody > tr > td:last-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+    border-right: 0;
+  }
+  .table-responsive > .table-bordered > tbody > tr:last-child > th,
+  .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+  .table-responsive > .table-bordered > tbody > tr:last-child > td,
+  .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+    border-bottom: 0;
+  }
+}
+
+/*==============================================*/
+/*=============== BSL/MFL Switch ===============*/
+/*==============================================*/
+
+
+.station_label{
+
+  display: inline-block;
+  color: $switch_bg;
+  font-size: 22px;
+
+  &.mf{
+    color: $sept_blue;
+  }
+  &.bs{
+    color: $sept_orange;
+  }
+}
+.switch-wrapper{
+    display: inline-block;
+}
+
+
+.onoffswitch {
+  position: relative; width: 90px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch-label {
+  display: block; 
+  overflow: hidden; 
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: $switch_bg;
+}
+.onoffswitch-inner {
+  width: 200%; margin-left: -100%;
+  -moz-transition: margin 0.3s ease-in 0s; 
+  -webkit-transition: margin 0.3s ease-in 0s;
+  -o-transition: margin 0.3s ease-in 0s; 
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+  float: left; 
+  width: 50%; 
+  height: 30px; 
+  padding: 0; 
+  line-height: 30px;
+  font-size: 14px; 
+  color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+  content: " ";
+  padding-left: 10px;
+}
+.onoffswitch-inner:after {
+  padding-right: 10px;
+  text-align: right;
+}
+.onoffswitch-switch {
+  width: 21px; margin: 4.5px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  position: absolute; top: 0; bottom: 0; right: 56px;
+  -moz-transition: all 0.3s ease-in 0s; -webkit-transition: all 0.3s ease-in 0s;
+  -o-transition: all 0.3s ease-in 0s; transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px; 
+}
+/*==============================================*/
+/*============== Media queries =================*/
+/*==============================================*/
+
+
+@media only screen and (max-width: 40.062em){ //mobile
+
+  .table-wrap{
+      max-height: 1200px;
+    } /*keeps table fixed to bottom for most mobile devices*/
+
+}
+
+
+@media only screen and (min-width: 40.063em) {//tablets and desktop
+  
+  html{
+    background: url(../img/subway_car2.jpg) no-repeat center center fixed;  
+    background-color: $bg;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+    td.station{
+    width: 47.5%;
+  }
+  td.chevron{
+    width: 5%;
+    padding: 0;
+  }
+}

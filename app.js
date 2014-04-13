@@ -66,7 +66,13 @@ var StationListView = Backbone.View.extend({
     render: function(start) {
         this.$el.empty(); //clears existing elements
 
-        var line = $('input.line:checked').val(); //checks to see what line is selected
+        if($('#myonoffswitch').is(":checked")){
+        	var line = 'mf'
+        }
+        else{
+        	var line = 'bs'
+        };
+
 
         this.collection.each(function(station) { //generates models from stations collection that correlate to correct station selection
             if ( (station.get('line') == line)) {
@@ -96,7 +102,6 @@ var GlobalView = Backbone.View.extend({
 
     el: 'body',
 
-
     intitialize: function() {
         console.log("Global init"),
         this.render();
@@ -108,9 +113,11 @@ var GlobalView = Backbone.View.extend({
 
     events: {
         'click .submit': 'submit',
-        'click .reset': 'reset',
-        'click input[type=radio]': 'lineset',
-        'change select': 'submit',
+        'click #wk' : 'setWeek',
+        'click #sat' : 'setSat',
+        'click #sun' : 'setSun',
+        'click #rst': 'reset',
+        'change input[type=checkbox]': 'lineset',
     },
 
     submit: function() {
@@ -121,11 +128,11 @@ var GlobalView = Backbone.View.extend({
         var end = end_list.getVal();
         window.end_station = stations._byCid[end];
 
-        this.schedule(start_station,end_station);//passing selected objects to scheduling logic
+        this.schedule(start_station,end_station,day());//passing selected objects to scheduling logic
     },
 
 
-    schedule: function(start,end){
+    schedule: function(start,end,day){
     	console.time('schedule');
         if(start.get('order')<end.get('order')){
             var dir = 'sb';
@@ -134,7 +141,7 @@ var GlobalView = Backbone.View.extend({
             var dir = 'nb';
         }
 
-        var instruct = day()+"_"+dir;
+        var instruct = day+"_"+dir;
 
         var start_preschedule = start.get(instruct);
 
@@ -156,14 +163,30 @@ var GlobalView = Backbone.View.extend({
             };
         };
 
-        schedule.render(start,end,day());
+        schedule.render(start,end,day);
         console.timeEnd('schedule');
     },
 
     reset: function() {
         start_list.reset();
         end_list.reset();
+        toolbar.reset();
         schedule.$el.empty();
+    },
+
+    setWeek: function(){
+    	console.log("Set to week");
+    	this.schedule(start_station,end_station,'wk');
+    },
+
+    setSat: function(){
+    	this.schedule(start_station,end_station,'sat');
+    	console.log("Set to saturday");
+    },
+
+    setSun: function(){
+    	this.schedule(start_station,end_station,'sun');
+    	console.log("Set to sunday");
     },
 
     lineset: function() {
@@ -189,8 +212,24 @@ var ScheduleView = Backbone.View.extend({
 
     render: function(start,end,day){
         this.$el.html(this.template(start.toJSON()));
+        toolbar.render();
     },
 });
+
+var ToolbarView = Backbone.View.extend({
+	el: '#toolbar',
+
+	template: _.template($('#toolbarTemplate').html()),
+
+	render: function(){
+		this.$el.empty();
+		this.$el.append(this.template);
+	},
+
+	reset: function(){
+		this.$el.empty();
+	}
+})
 
 //---------------------Other code---------------------------------
 
@@ -224,6 +263,7 @@ $(function() {
     console.timeEnd('make view');
 
     schedule = new ScheduleView();
+    toolbar = new ToolbarView();
 
     console.timeEnd('load');
 });

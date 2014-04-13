@@ -1,0 +1,761 @@
+/*==============================================*/
+/*================ Colors ======================*/
+/*==============================================*/
+/*==============================================*/
+/*================= Fonts ======================*/
+/*==============================================*/
+@font-face {
+  font-family: 'machinescript';
+  src: url("../fonts/machinescript.ttf");
+  /* IE9 Compat Modes */
+}
+
+@font-face {
+  font-family: 'fontello';
+  src: url("../fonts/fontello.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 40, styles.scss */
+.icon-star:before {
+  content: '\e802';
+}
+
+/* '' */
+/* line 41, styles.scss */
+.icon-star-empty:before {
+  content: '\e803';
+}
+
+/* '' */
+/* line 42, styles.scss */
+.icon-menu:before {
+  content: '\e801';
+}
+
+/* '' */
+/* line 43, styles.scss */
+.icon-ccw:before {
+  content: '\e800';
+}
+
+/* '' */
+/* line 44, styles.scss */
+[class^="icon-"]:before, [class*=" icon-"]:before {
+  font-family: "fontello";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  width: 1em;
+  text-align: center;
+}
+
+/*==============================================*/
+/*=============== General ======================*/
+/*==============================================*/
+/* line 58, styles.scss */
+h1 {
+  color: white;
+}
+
+/* line 63, styles.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 67, styles.scss */
+html {
+  background-color: #2a363b;
+}
+
+/* line 70, styles.scss */
+body {
+  background: none;
+  position: relative;
+}
+
+/* line 75, styles.scss */
+.center {
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+/* line 81, styles.scss */
+*:focus {
+  outline: none;
+}
+
+/*removes blue glow from input*/
+/*==============================================*/
+/*=============== Nav/header ===================*/
+/*==============================================*/
+/* line 87, styles.scss */
+nav {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 40px;
+  background-color: #222b2f;
+}
+/* line 92, styles.scss */
+nav .branding {
+  font-size: 2.5rem!important;
+  line-height: 42px;
+  font-family: 'machinescript',arial,sans-serif;
+  color: white;
+}
+/* line 98, styles.scss */
+nav a {
+  color: white;
+}
+/* line 101, styles.scss */
+nav .wrapper {
+  position: relative;
+  top: 30%;
+  -webkit-transform: translateY(-30%);
+  -ms-transform: translateY(-30%);
+  transform: translateY(-30%);
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+  max-width: 940px;
+}
+
+/*==============================================*/
+/*================= Picker =====================*/
+/*==============================================*/
+/* line 120, styles.scss */
+.platter select {
+  font-size: 1.1rem;
+  height: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+/* line 128, styles.scss */
+.platter .add-on {
+  width: 40px;
+  height: 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+/* line 137, styles.scss */
+.vert_center {
+  position: absolute;
+  width: 100%;
+  top: 30%;
+}
+
+/* line 143, styles.scss */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  z-index: 9999;
+}
+
+/*==============================================*/
+/*================ Buttons =====================*/
+/*==============================================*/
+/* line 157, styles.scss */
+button.hide {
+  display: none !important;
+}
+
+/* line 161, styles.scss */
+a.submit {
+  width: 100%;
+  border: 0 none;
+  border-radius: 2px 2px 2px 2px;
+  color: white;
+  height: 75px;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial,sans-serif;
+  font-size: 1.25rem;
+  font-weight: bold;
+  line-height: 20px;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  padding: 7px 10px;
+  text-transform: none;
+  transition: all 0.3s ease 0s;
+  -moz-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+  text-align: center;
+  /* DELETE WHEN WIDTH AUTO */
+  background: none repeat scroll 0 0 #369350;
+  outline-color: transparent;
+  outline-style: none;
+  text-decoration: none;
+}
+/* line 187, styles.scss */
+a.submit:hover {
+  background: none repeat scroll 0 0 #286e3c;
+  color: white;
+}
+/* line 191, styles.scss */
+a.submit:active {
+  background-color: #215b32;
+}
+
+/* line 196, styles.scss */
+button.tool {
+  color: white;
+  border: none;
+  width: 24%;
+  height: 50px;
+  float: left;
+  box-shadow: -1px 0 0 #616060;
+}
+/* line 204, styles.scss */
+button.tool.day {
+  background-color: #979797;
+}
+/* line 207, styles.scss */
+button.tool.active {
+  background-color: #616060 !important;
+}
+/* line 210, styles.scss */
+button.tool:hover {
+  background-color: #949494;
+}
+/* line 213, styles.scss */
+button.tool#rst {
+  background-color: #a05553 !important;
+  margin-left: 4%;
+  box-shadow: none;
+}
+/* line 218, styles.scss */
+button.tool#rst:hover {
+  background-color: #6e3a39 !important;
+}
+
+/* line 224, styles.scss */
+.toolbar {
+  width: 100%;
+}
+
+/*==============================================*/
+/*=========== Results Table (mine) =============*/
+/*==============================================*/
+/* line 233, styles.scss */
+.table-header {
+  margin-top: 30px;
+  margin-bottom: 0 !important;
+}
+/* line 237, styles.scss */
+.table-header tr {
+  font-size: 1.1rem;
+}
+/* line 241, styles.scss */
+.table-header td {
+  text-align: center;
+  width: 50%;
+}
+/* line 245, styles.scss */
+.table-header td.chevron {
+  width: 10%!important;
+  padding: 0;
+}
+/* line 249, styles.scss */
+.table-header td.station {
+  width: 45%;
+}
+/* line 254, styles.scss */
+.table-header .station {
+  font-size: 1.4rem;
+  color: white;
+}
+/* line 258, styles.scss */
+.table-header .mf {
+  background-color: #0055a0 !important;
+}
+/* line 261, styles.scss */
+.table-header .bs {
+  background-color: #f76225 !important;
+}
+
+/* line 267, styles.scss */
+.table-wrap {
+  max-height: 400px;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* line 273, styles.scss */
+.table_and_tools {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+/* line 280, styles.scss */
+.times {
+  background-color: white;
+  color: black;
+}
+/* line 284, styles.scss */
+.times tr {
+  font-size: 1.1rem;
+}
+/* line 288, styles.scss */
+.times td {
+  text-align: center;
+  width: 50%;
+}
+
+/* line 294, styles.scss */
+.warn {
+  color: #a1504d !important;
+  font-weight: bold;
+}
+
+/* line 299, styles.scss */
+.pointer {
+  background-color: #fcfcb0 !important;
+}
+
+@media only screen and (max-width: 40.062em) {
+  /* line 305, styles.scss */
+  .table-wrap {
+    max-height: 1200px;
+  }
+
+  /*keeps table fixed to bottom for most mobile devices*/
+}
+/*==============================================*/
+/*===== Results Table (twitter bootstrap) ======*/
+/*==============================================*/
+/* line 317, styles.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 322, styles.scss */
+.table-hide {
+  display: none;
+}
+
+/* line 325, styles.scss */
+table {
+  max-width: 100%;
+  background-color: transparent;
+}
+
+/* line 329, styles.scss */
+th {
+  text-align: left;
+}
+
+/* line 332, styles.scss */
+.table {
+  width: 100%;
+}
+
+/* line 340, styles.scss */
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
+}
+
+/* line 345, styles.scss */
+.table > thead > tr > th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dddddd;
+}
+
+/* line 354, styles.scss */
+.table > caption + thead > tr:first-child > th,
+.table > colgroup + thead > tr:first-child > th,
+.table > thead:first-child > tr:first-child > th,
+.table > caption + thead > tr:first-child > td,
+.table > colgroup + thead > tr:first-child > td,
+.table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
+
+/* line 357, styles.scss */
+.table > tbody + tbody {
+  border-top: 2px solid #dddddd;
+}
+
+/* line 360, styles.scss */
+.table .table {
+  background-color: #f9f9f9;
+}
+
+/* line 368, styles.scss */
+.table-condensed > thead > tr > th,
+.table-condensed > tbody > tr > th,
+.table-condensed > tfoot > tr > th,
+.table-condensed > thead > tr > td,
+.table-condensed > tbody > tr > td,
+.table-condensed > tfoot > tr > td {
+  padding: 5px;
+}
+
+/* line 373, styles.scss */
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #e4e4e4;
+}
+
+/* line 377, styles.scss */
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+  background-color: #f5f5f5;
+}
+
+/* line 380, styles.scss */
+table col[class*="col-"] {
+  position: static;
+  float: none;
+  display: table-column;
+}
+
+/* line 386, styles.scss */
+table td[class*="col-"],
+table th[class*="col-"] {
+  position: static;
+  float: none;
+  display: table-cell;
+}
+
+/* line 402, styles.scss */
+.table > thead > tr > td.active,
+.table > tbody > tr > td.active,
+.table > tfoot > tr > td.active,
+.table > thead > tr > th.active,
+.table > tbody > tr > th.active,
+.table > tfoot > tr > th.active,
+.table > thead > tr.active > td,
+.table > tbody > tr.active > td,
+.table > tfoot > tr.active > td,
+.table > thead > tr.active > th,
+.table > tbody > tr.active > th,
+.table > tfoot > tr.active > th {
+  background-color: #f5f5f5;
+}
+
+/* line 408, styles.scss */
+.table-hover > tbody > tr > td.active:hover,
+.table-hover > tbody > tr > th.active:hover,
+.table-hover > tbody > tr.active:hover > td,
+.table-hover > tbody > tr.active:hover > th {
+  background-color: #e8e8e8;
+}
+
+/* line 422, styles.scss */
+.table > thead > tr > td.success,
+.table > tbody > tr > td.success,
+.table > tfoot > tr > td.success,
+.table > thead > tr > th.success,
+.table > tbody > tr > th.success,
+.table > tfoot > tr > th.success,
+.table > thead > tr.success > td,
+.table > tbody > tr.success > td,
+.table > tfoot > tr.success > td,
+.table > thead > tr.success > th,
+.table > tbody > tr.success > th,
+.table > tfoot > tr.success > th {
+  background-color: #dff0d8;
+}
+
+/* line 428, styles.scss */
+.table-hover > tbody > tr > td.success:hover,
+.table-hover > tbody > tr > th.success:hover,
+.table-hover > tbody > tr.success:hover > td,
+.table-hover > tbody > tr.success:hover > th {
+  background-color: #d0e9c6;
+}
+
+/* line 442, styles.scss */
+.table > thead > tr > td.info,
+.table > tbody > tr > td.info,
+.table > tfoot > tr > td.info,
+.table > thead > tr > th.info,
+.table > tbody > tr > th.info,
+.table > tfoot > tr > th.info,
+.table > thead > tr.info > td,
+.table > tbody > tr.info > td,
+.table > tfoot > tr.info > td,
+.table > thead > tr.info > th,
+.table > tbody > tr.info > th,
+.table > tfoot > tr.info > th {
+  background-color: #d9edf7;
+}
+
+/* line 448, styles.scss */
+.table-hover > tbody > tr > td.info:hover,
+.table-hover > tbody > tr > th.info:hover,
+.table-hover > tbody > tr.info:hover > td,
+.table-hover > tbody > tr.info:hover > th {
+  background-color: #c4e3f3;
+}
+
+/* line 462, styles.scss */
+.table > thead > tr > td.warning,
+.table > tbody > tr > td.warning,
+.table > tfoot > tr > td.warning,
+.table > thead > tr > th.warning,
+.table > tbody > tr > th.warning,
+.table > tfoot > tr > th.warning,
+.table > thead > tr.warning > td,
+.table > tbody > tr.warning > td,
+.table > tfoot > tr.warning > td,
+.table > thead > tr.warning > th,
+.table > tbody > tr.warning > th,
+.table > tfoot > tr.warning > th {
+  background-color: #fcf8e3;
+}
+
+/* line 468, styles.scss */
+.table-hover > tbody > tr > td.warning:hover,
+.table-hover > tbody > tr > th.warning:hover,
+.table-hover > tbody > tr.warning:hover > td,
+.table-hover > tbody > tr.warning:hover > th {
+  background-color: #faf2cc;
+}
+
+/* line 482, styles.scss */
+.table > thead > tr > td.danger,
+.table > tbody > tr > td.danger,
+.table > tfoot > tr > td.danger,
+.table > thead > tr > th.danger,
+.table > tbody > tr > th.danger,
+.table > tfoot > tr > th.danger,
+.table > thead > tr.danger > td,
+.table > tbody > tr.danger > td,
+.table > tfoot > tr.danger > td,
+.table > thead > tr.danger > th,
+.table > tbody > tr.danger > th,
+.table > tfoot > tr.danger > th {
+  background-color: #f2dede;
+}
+
+/* line 488, styles.scss */
+.table-hover > tbody > tr > td.danger:hover,
+.table-hover > tbody > tr > th.danger:hover,
+.table-hover > tbody > tr.danger:hover > td,
+.table-hover > tbody > tr.danger:hover > th {
+  background-color: #ebcccc;
+}
+
+@media (max-width: 767px) {
+  /* line 492, styles.scss */
+  .table-responsive {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    border: 1px solid #dddddd;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* line 501, styles.scss */
+  .table-responsive > .table {
+    margin-bottom: 0;
+  }
+
+  /* line 509, styles.scss */
+  .table-responsive > .table > thead > tr > th,
+  .table-responsive > .table > tbody > tr > th,
+  .table-responsive > .table > tfoot > tr > th,
+  .table-responsive > .table > thead > tr > td,
+  .table-responsive > .table > tbody > tr > td,
+  .table-responsive > .table > tfoot > tr > td {
+    white-space: nowrap;
+  }
+
+  /* line 512, styles.scss */
+  .table-responsive > .table-bordered {
+    border: 0;
+  }
+
+  /* line 520, styles.scss */
+  .table-responsive > .table-bordered > thead > tr > th:first-child,
+  .table-responsive > .table-bordered > tbody > tr > th:first-child,
+  .table-responsive > .table-bordered > tfoot > tr > th:first-child,
+  .table-responsive > .table-bordered > thead > tr > td:first-child,
+  .table-responsive > .table-bordered > tbody > tr > td:first-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:first-child {
+    border-left: 0;
+  }
+
+  /* line 528, styles.scss */
+  .table-responsive > .table-bordered > thead > tr > th:last-child,
+  .table-responsive > .table-bordered > tbody > tr > th:last-child,
+  .table-responsive > .table-bordered > tfoot > tr > th:last-child,
+  .table-responsive > .table-bordered > thead > tr > td:last-child,
+  .table-responsive > .table-bordered > tbody > tr > td:last-child,
+  .table-responsive > .table-bordered > tfoot > tr > td:last-child {
+    border-right: 0;
+  }
+
+  /* line 534, styles.scss */
+  .table-responsive > .table-bordered > tbody > tr:last-child > th,
+  .table-responsive > .table-bordered > tfoot > tr:last-child > th,
+  .table-responsive > .table-bordered > tbody > tr:last-child > td,
+  .table-responsive > .table-bordered > tfoot > tr:last-child > td {
+    border-bottom: 0;
+  }
+}
+/*==============================================*/
+/*=============== BSL/MFL Switch ===============*/
+/*==============================================*/
+/* line 544, styles.scss */
+.station_label {
+  display: inline-block;
+  color: #afaeae;
+  font-size: 22px;
+}
+/* line 550, styles.scss */
+.station_label.mf {
+  color: #0055a0;
+}
+/* line 553, styles.scss */
+.station_label.bs {
+  color: #f76225;
+}
+
+/* line 557, styles.scss */
+.switch-wrapper {
+  display: inline-block;
+}
+
+/* line 562, styles.scss */
+.onoffswitch {
+  position: relative;
+  width: 90px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* line 566, styles.scss */
+.onoffswitch-checkbox {
+  display: none;
+}
+
+/* line 569, styles.scss */
+.onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #afaeae;
+}
+
+/* line 576, styles.scss */
+.onoffswitch-inner {
+  width: 200%;
+  margin-left: -100%;
+  -moz-transition: margin 0.3s ease-in 0s;
+  -webkit-transition: margin 0.3s ease-in 0s;
+  -o-transition: margin 0.3s ease-in 0s;
+  transition: margin 0.3s ease-in 0s;
+}
+
+/* line 583, styles.scss */
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+  float: left;
+  width: 50%;
+  height: 30px;
+  padding: 0;
+  line-height: 30px;
+  font-size: 14px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 593, styles.scss */
+.onoffswitch-inner:before {
+  content: " ";
+  padding-left: 10px;
+}
+
+/* line 597, styles.scss */
+.onoffswitch-inner:after {
+  padding-right: 10px;
+  text-align: right;
+}
+
+/* line 601, styles.scss */
+.onoffswitch-switch {
+  width: 21px;
+  margin: 4.5px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 56px;
+  -moz-transition: all 0.3s ease-in 0s;
+  -webkit-transition: all 0.3s ease-in 0s;
+  -o-transition: all 0.3s ease-in 0s;
+  transition: all 0.3s ease-in 0s;
+}
+
+/* line 609, styles.scss */
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+
+/* line 612, styles.scss */
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px;
+}
+
+/*==============================================*/
+/*============== Media queries =================*/
+/*==============================================*/
+@media only screen and (max-width: 40.062em) {
+  /* line 622, styles.scss */
+  .table-wrap {
+    max-height: 1200px;
+  }
+
+  /*keeps table fixed to bottom for most mobile devices*/
+}
+@media only screen and (min-width: 40.063em) {
+  /* line 631, styles.scss */
+  html {
+    background: url(../img/subway_car2.jpg) no-repeat center center fixed;
+    background-color: #2a363b;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  /* line 639, styles.scss */
+  td.station {
+    width: 47.5%;
+  }
+
+  /* line 642, styles.scss */
+  td.chevron {
+    width: 5%;
+    padding: 0;
+  }
+}

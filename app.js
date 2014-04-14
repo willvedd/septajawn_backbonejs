@@ -128,6 +128,10 @@ var GlobalView = Backbone.View.extend({
         var end = end_list.getVal();
         window.end_station = stations._byCid[end];
 
+        console.time("hide");
+        $('.platter').hide();
+        console.timeEnd("hide");
+
         this.schedule(start_station,end_station,day());//passing selected objects to scheduling logic
     },
 
@@ -156,8 +160,8 @@ var GlobalView = Backbone.View.extend({
         for(i=0; i<(start.get(instruct).length);i++){
             if(start_preschedule[i]!=null){
                 if(end_preschedule[i]!=null){
-                    start_schedule[j] = start_preschedule[i];
-                    end_schedule[j] = end_preschedule[i];
+                    start_schedule[j] = timeformat(start_preschedule[i]);
+                    end_schedule[j] = timeformat(end_preschedule[i]);
                     j++
                 };
             };
@@ -172,6 +176,7 @@ var GlobalView = Backbone.View.extend({
         end_list.reset();
         toolbar.reset();
         schedule.$el.empty();
+        $('.platter').show();
     },
 
     setWeek: function(){
@@ -212,6 +217,7 @@ var ScheduleView = Backbone.View.extend({
 
     render: function(start,end,day){
         this.$el.html(this.template(start.toJSON()));
+        $('.table-wrap').height($(window).height()-150);
         toolbar.render();
     },
 });
@@ -247,6 +253,29 @@ $(function() {
             return "wk";
         }
     };
+
+    timeformat = function(time) { //formats time from a double into hh:mm for rendering purposes only
+	    if ((time >= 12) && (time < 24)) {
+	        var meridian = "PM";
+	        if (time > 12.59) {
+	            time = ((Math.round((time-12.00) * 100)) / 100) //Formatting time from 24hr to 12hr style
+	        };
+	    } else {
+	        var meridian = "AM"
+	    };
+	    time = time.toString().split("."); //Converting time variable to a string and splitting to get minutes and hours
+	    if (time[1] === undefined) { //If minutes are undefined,
+	        time[1] = "00"; //Converts undefined minutes to hh:00;
+	    };
+	    if (time[0] == 24) { //If the hour is 24, set it to 12
+	        time[0] = 12
+	    };
+	    if (time[1].length == 1) {
+	        time[1] = time[1] * 10; //Adds trailing zero to hh:m0 numbers that otherwise display as hh:m;
+	    };
+
+	    return (time[0] + ":" + time[1] + " " + meridian); //returning a string of the time
+	};
 
     start_list = new StationListView({
         collection: stations,

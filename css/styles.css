@@ -731,16 +731,8 @@ table th[class*="col-"] {
 /*==============================================*/
 @media only screen and (max-width: 40.062em) {
   /* line 622, styles.scss */
-  .table-wrap {
-    max-height: 1200px;
-  }
-
-  /*keeps table fixed to bottom for most mobile devices*/
-}
-@media only screen and (min-width: 40.063em) {
-  /* line 631, styles.scss */
   html {
-    background: url(../img/subway_car2.jpg) no-repeat center center fixed;
+    background: url(../img/bg_mobile.jpg) no-repeat center center fixed;
     background-color: #2a363b;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -748,12 +740,30 @@ table th[class*="col-"] {
     background-size: cover;
   }
 
+  /* line 630, styles.scss */
+  .table-wrap {
+    max-height: 1200px;
+  }
+
+  /*keeps table fixed to bottom for most mobile devices*/
+}
+@media only screen and (min-width: 40.063em) {
   /* line 639, styles.scss */
+  html {
+    background: url(../img/bg1.jpg) no-repeat center center fixed;
+    background-color: #2a363b;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  /* line 647, styles.scss */
   td.station {
     width: 47.5%;
   }
 
-  /* line 642, styles.scss */
+  /* line 650, styles.scss */
   td.chevron {
     width: 5%;
     padding: 0;

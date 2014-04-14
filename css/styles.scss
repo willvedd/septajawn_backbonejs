@@ -619,6 +619,14 @@ table th[class*="col-"] {
 
 @media only screen and (max-width: 40.062em){ //mobile
 
+  html{
+    background: url(../img/bg_mobile.jpg) no-repeat center center fixed;  
+    background-color: $bg;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
   .table-wrap{
       max-height: 1200px;
     } /*keeps table fixed to bottom for most mobile devices*/
@@ -629,7 +637,7 @@ table th[class*="col-"] {
 @media only screen and (min-width: 40.063em) {//tablets and desktop
   
   html{
-    background: url(../img/subway_car2.jpg) no-repeat center center fixed;  
+    background: url(../img/bg1.jpg) no-repeat center center fixed;  
     background-color: $bg;
     -webkit-background-size: cover;
     -moz-background-size: cover;

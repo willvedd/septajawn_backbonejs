@@ -37,10 +37,12 @@ $switch_bg: #afaeae;
   font-weight: normal;
   font-style: normal;
 }
+.icon-ccw:before { content: '\e800'; } /* '' */
+.icon-menu:before { content: '\e801'; } /* '' */
 .icon-star:before { content: '\e802'; } /* '' */
 .icon-star-empty:before { content: '\e803'; } /* '' */
-.icon-menu:before { content: '\e801'; } /* '' */
-.icon-ccw:before { content: '\e800'; } /* '' */
+.icon-exchange:before { content: '\e804'; } /* '' */
+
 [class^="icon-"]:before, [class*=" icon-"]:before {
   font-family: "fontello";
   font-style: normal;
@@ -84,20 +86,21 @@ body{
 /*=============== Nav/header ===================*/
 /*==============================================*/
 
-nav{
-  padding-top: 20px;
-  padding-bottom:20px;
-  margin-bottom:40px;
-  background-color: $nav;
-  .branding{
-    font-size: 2.5rem!important;
-    line-height: 42px;
-    font-family: 'machinescript',arial,sans-serif;
-    color: $white;
-  }
-  a{
-    color: $white;
-  }
+header {
+  width: 100%;
+  top: 0;
+  left: 0;
+}
+
+nav {
+    margin-bottom:40px;
+    background-color: $nav;
+    display: inline-block;
+    float: left;
+    width: 100%;
+    line-height: 2.5em;
+    font-family: Helvetica Neue, Helvetica, Arial;
+
   .wrapper{
     position: relative;
     top: 30%;
@@ -108,6 +111,40 @@ nav{
     margin-right:auto;
     float: none;
     max-width: 940px;
+    }
+ 
+  .branding{
+    font-size: 2.5rem!important;
+    line-height: 2.5em;
+    font-family: 'machinescript',arial,sans-serif;
+    color: $white;
+    }
+
+  a{
+  color: $switch_bg;
+  text-decoration: none;
+  font-size:1em;
+  padding: 0.5em;
+  font-weight: bold;
+  }
+
+  a:hover#menu-icon {
+  background-color: #444;
+  border-radius: 4px 4px 0 0;
+  } 
+
+  ul {
+    float: right;
+  }
+
+  li {
+    display: inline-block;
+    float: right;
+    padding: 10px
+  }
+
+  #menu-icon {
+  display: none;
   }
 }
 
@@ -196,7 +233,7 @@ a.submit{
 button.tool{
   color: $white;
   border: none;
-  width: 24%;
+  width: 15%;
   height: 50px;
   float:left;
   box-shadow: -1px 0 0 $toolbar_active;
@@ -218,6 +255,9 @@ button.tool{
     &:hover{
       background-color: darken($reset,15%)!important;
     }
+  }
+  &#reverse{
+    background-color:$submit;
   } 
 }
 
@@ -627,10 +667,41 @@ table th[class*="col-"] {
     -o-background-size: cover;
     background-size: cover;
   }
+
   .table-wrap{
       max-height: 1200px;
     } /*keeps table fixed to bottom for most mobile devices*/
 
+  #menu-icon {
+    display:inline-block !important;
+    font-size: 2.5em;
+    margin-right: 30px;
+    float: right;
+    line-height: 2.5em;
+  }
+
+  nav ul, nav:active ul { 
+    display: none;
+    position: absolute;
+    padding: 20px;
+    background: #fff;
+    border: 5px solid #444;
+    right: 20px;
+    top: 60px;
+    width: 50%;
+    border-radius: 4px 0 4px 4px;
+  }
+
+  nav li {
+    text-align: center;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
+  }
+
+  nav:hover ul {
+    display: block;
+  }
 }
 
 
@@ -644,8 +715,8 @@ table th[class*="col-"] {
     -o-background-size: cover;
     background-size: cover;
   }
-    td.station{
-    width: 47.5%;
+  td.station{
+  width: 47.5%;
   }
   td.chevron{
     width: 5%;

@@ -112,6 +112,8 @@ var GlobalView = Backbone.View.extend({
         'click #sat' : 'setSat',
         'click #sun' : 'setSun',
         'click #rst': 'reset',
+        'click #reverse': 'reverse',
+        'click #fav': 'favorite',
         'change input[type=checkbox]': 'lineset',
         'change #start_dest': 'endlineset',
         'change #end_dest': 'startlineset',
@@ -131,10 +133,14 @@ var GlobalView = Backbone.View.extend({
         window.end_station = stations._byCid[end];
 
         console.time("hide");
-        $('.platter').hide();
+        if((start_station!=undefined)&&(end_station!=undefined)){//validates the presence of data, or else the drop downs will disappear
+            console.log("hiding");
+            $('.platter').hide();
+        };
         console.timeEnd("hide");
 
         this.schedule(start_station,end_station,day());//passing selected objects to scheduling logic
+    
     	console.timeEnd('submit');
     },
 
@@ -151,11 +157,9 @@ var GlobalView = Backbone.View.extend({
         var instruct = day+"_"+dir;
 
         var start_preschedule = start.get(instruct);
-
         var end_preschedule = end.get(instruct);
 
         window.start_schedule = [];
-
         window.end_schedule = [];
 
         var j = 0;
@@ -187,16 +191,34 @@ var GlobalView = Backbone.View.extend({
 
     setWeek: function(){
     	this.schedule(start_station,end_station,'wk');
+        $('#wk').addClass("active");
     },
 
     setSat: function(){
     	this.schedule(start_station,end_station,'sat');
+        $('#sat').addClass("active");
     },
 
     setSun: function(){
     	console.time('setSun');
     	this.schedule(start_station,end_station,'sun');
-    	console.timeEnd('setSun');
+        $('#sun').addClass("active");
+        console.timeEnd('setSun');
+    },
+
+    reverse: function(){
+        console.time('reverse');
+        temp_station = start_station;
+        start_station = end_station;
+        end_station = temp_station;
+        this.schedule(start_station,end_station,day());
+        console.timeEnd('reverse');
+    },
+
+    favorite: function(){
+        console.log("Favorites: "+start_station.cid+" and "+end_station.cid);
+        $.cookie.write('start_fav', start_station.cid, 24 * 60 * 60 *365);
+        $.cookie.write('end_fav', end_station.cid, 24 * 60 * 60 *365);
     },
 
     lineset: function() {
@@ -331,6 +353,9 @@ $(function() {
     console.timeEnd('make toolbar view');
 
     console.timeEnd('load');
+
+    console.log("Start saved: "+$.cookie.read('start_fav'));
+    console.log("End saved: "+$.cookie.read('end_fav'));
 });
 
 

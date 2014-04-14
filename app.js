@@ -24,11 +24,9 @@ var StationList = Backbone.Collection.extend({
 
 var stations = new StationList();
 
-stations.fetch({
-    success: function() {
-        console.log("Successful fetch");
-    }
-});
+console.time('fetch');
+stations.fetch();
+console.timeEnd('fetch');
 
 //----------------------- Station View -------------------------------
 
@@ -40,11 +38,10 @@ var StationView = Backbone.View.extend({
 
     className: "station",
 
-    initialize: function(res) {
-        console.log("Station view initialized");
+    initialize: function() {
         this.render();
     },
-    render: function(eventName) {
+    render: function() {
         this.$el.html(this.template(this.model.toJSON()));
         this.el.value = this.model.cid;//Sets value for drop down selections, allows future binding
         return this;
@@ -63,7 +60,8 @@ var StationListView = Backbone.View.extend({
         this.render();
     },
 
-    render: function(start) {
+    render: function() {
+
         this.$el.empty(); //clears existing elements
 
         if($('#myonoffswitch').is(":checked")){
@@ -73,13 +71,19 @@ var StationListView = Backbone.View.extend({
         	var line = 'bs'
         };
 
+        this.$el.append('<option disabled="disabled" selected="selected">Select station</option>');
 
         this.collection.each(function(station) { //generates models from stations collection that correlate to correct station selection
-            if ( (station.get('line') == line)) {
-                var stationView = new StationView({
+            if ( (station.get('line') == line) ) {
+            	if(station.cid == $('#start_dest').val()){
+            	}
+            	else{
+            		var stationView = new StationView({
                     model: station
                 });
+
                 this.$el.append(stationView.el);
+            	}
             };
         }, this); //"This" loses reference inside loop, regains it with appended ",this"
 
@@ -102,15 +106,6 @@ var GlobalView = Backbone.View.extend({
 
     el: 'body',
 
-    intitialize: function() {
-        console.log("Global init"),
-        this.render();
-    },
-
-    render: function() {
-        console.log("Global render");
-    },
-
     events: {
         'click .submit': 'submit',
         'click #wk' : 'setWeek',
@@ -118,10 +113,17 @@ var GlobalView = Backbone.View.extend({
         'click #sun' : 'setSun',
         'click #rst': 'reset',
         'change input[type=checkbox]': 'lineset',
+        'change #start_dest': 'endlineset',
+        'change #end_dest': 'startlineset',
+    },
+
+    initialize: function(){
+    	start_list.render();
+    	end_list.render();
     },
 
     submit: function() {
-
+    	console.time('submit');
         var start = start_list.getVal();
         window.start_station = stations._byCid[start];
 
@@ -133,6 +135,7 @@ var GlobalView = Backbone.View.extend({
         console.timeEnd("hide");
 
         this.schedule(start_station,end_station,day());//passing selected objects to scheduling logic
+    	console.timeEnd('submit');
     },
 
 
@@ -156,7 +159,7 @@ var GlobalView = Backbone.View.extend({
         window.end_schedule = [];
 
         var j = 0;
-
+        console.time('scheduleFor');
         for(i=0; i<(start.get(instruct).length);i++){
             if(start_preschedule[i]!=null){
                 if(end_preschedule[i]!=null){
@@ -166,40 +169,55 @@ var GlobalView = Backbone.View.extend({
                 };
             };
         };
+        console.timeEnd('scheduleFor');
 
         schedule.render(start,end,day);
         console.timeEnd('schedule');
     },
 
     reset: function() {
+    	console.time('reset');
         start_list.reset();
         end_list.reset();
         toolbar.reset();
         schedule.$el.empty();
         $('.platter').show();
+        console.timeEnd('reset');
     },
 
     setWeek: function(){
-    	console.log("Set to week");
     	this.schedule(start_station,end_station,'wk');
     },
 
     setSat: function(){
     	this.schedule(start_station,end_station,'sat');
-    	console.log("Set to saturday");
     },
 
     setSun: function(){
+    	console.time('setSun');
     	this.schedule(start_station,end_station,'sun');
-    	console.log("Set to sunday");
+    	console.timeEnd('setSun');
     },
 
     lineset: function() {
+    	console.time('lineset');
         start_list.reset();
         end_list.reset()
         schedule.$el.empty();
+        console.timeEnd('lineset');
     },
 
+    endlineset: function(){
+    	if($('#start_dest').val()==$('#end_dest').val()){
+    		end_list.reset()
+    	};
+    },
+
+    startlineset: function(){
+    	if($('#end_dest').val()==$('#start_dest').val()){
+    		start_list.reset()
+    	};
+    },
 });
 
 
@@ -228,8 +246,10 @@ var ToolbarView = Backbone.View.extend({
 	template: _.template($('#toolbarTemplate').html()),
 
 	render: function(){
+		console.time('toolbar render');
 		this.$el.empty();
 		this.$el.append(this.template);
+		console.timeEnd('toolbar render');
 	},
 
 	reset: function(){
@@ -253,6 +273,16 @@ $(function() {
             return "wk";
         }
     };
+
+    time = function(){
+    	var now = new Date();
+    	var hours = now.getHours();
+    	if (hours == 0){
+    		hours = 24;
+    	};
+    	var minutes = now.getMinutes(); 
+   		return hours+"."+minutes;//setting time 
+    }
 
     timeformat = function(time) { //formats time from a double into hh:mm for rendering purposes only
 	    if ((time >= 12) && (time < 24)) {
@@ -280,6 +310,7 @@ $(function() {
     start_list = new StationListView({
         collection: stations,
         el: '#start_dest',
+
     });
 
     end_list = new StationListView({
@@ -287,12 +318,17 @@ $(function() {
         el: '#end_dest'
     });
 
-	console.time('make view');
+	console.time('make global view');
     global = new GlobalView();
-    console.timeEnd('make view');
+    console.timeEnd('make global view');
 
+    console.time('make schedule view');
     schedule = new ScheduleView();
+    console.timeEnd('make schedule view');
+
+    console.time('make toolbar view');
     toolbar = new ToolbarView();
+    console.timeEnd('make toolbar view');
 
     console.timeEnd('load');
 });

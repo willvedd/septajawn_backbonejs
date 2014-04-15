@@ -37,9 +37,11 @@ stations.fetch({
         start_list.render();
         end_list.render();
         if( ($.cookie.read('line_fav')!=null) && ($.cookie.read('line_fav')=='mf') ){
-            $('.label1').click();
+            $('.line1').click();
+            console.log("line cookie mf and set");
         }
         else{
+            console.log("line cookie NOT mf");
             if ($.cookie.read('start_fav')!=null){
                 console.log("Cookie set");
                 $('#start_dest').val($.cookie.read('start_fav'));

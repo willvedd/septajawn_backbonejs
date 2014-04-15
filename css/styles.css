@@ -115,7 +115,12 @@ nav {
   line-height: 2.5rem;
   font-family: Helvetica Neue, Helvetica, Arial;
 }
-/* line 106, styles.scss */
+/* line 107, styles.scss */
+nav .nav_contain {
+  display: table;
+  margin: 10px 0;
+}
+/* line 111, styles.scss */
 nav .wrapper {
   position: relative;
   top: 30%;
@@ -127,14 +132,16 @@ nav .wrapper {
   float: none;
   max-width: 940px;
 }
-/* line 118, styles.scss */
+/* line 123, styles.scss */
 nav .branding {
   font-size: 2.5rem!important;
   line-height: 2.5rem;
   font-family: 'machinescript',arial,sans-serif;
   color: white;
+  display: table-cell;
+  vertical-align: middle;
 }
-/* line 125, styles.scss */
+/* line 132, styles.scss */
 nav a {
   color: #afaeae;
   text-decoration: none;
@@ -142,22 +149,23 @@ nav a {
   padding: 0.5rem;
   font-weight: bold;
 }
-/* line 133, styles.scss */
+/* line 140, styles.scss */
 nav a:hover#menu-icon {
   background-color: #444;
   border-radius: 4px 4px 0 0;
 }
-/* line 138, styles.scss */
+/* line 145, styles.scss */
 nav ul {
-  float: right;
+  display: table-cell;
+  vertical-align: middle;
 }
-/* line 142, styles.scss */
+/* line 150, styles.scss */
 nav li {
   display: inline-block;
   float: right;
   padding: 10px;
 }
-/* line 148, styles.scss */
+/* line 156, styles.scss */
 nav #menu-icon {
   display: none;
 }
@@ -165,7 +173,7 @@ nav #menu-icon {
 /*==============================================*/
 /*================= Picker =====================*/
 /*==============================================*/
-/* line 159, styles.scss */
+/* line 167, styles.scss */
 .platter select {
   font-size: 1.1rem;
   height: 40px;
@@ -173,7 +181,7 @@ nav #menu-icon {
   margin-bottom: 20px;
   position: relative;
 }
-/* line 167, styles.scss */
+/* line 175, styles.scss */
 .platter .add-on {
   width: 40px;
   height: 40px;
@@ -182,14 +190,14 @@ nav #menu-icon {
   padding: 0;
 }
 
-/* line 176, styles.scss */
+/* line 184, styles.scss */
 .vert_center {
   position: absolute;
   width: 100%;
   top: 30%;
 }
 
-/* line 182, styles.scss */
+/* line 190, styles.scss */
 .overlay {
   position: absolute;
   top: 0;
@@ -203,18 +211,18 @@ nav #menu-icon {
 /*==============================================*/
 /*================ Buttons =====================*/
 /*==============================================*/
-/* line 196, styles.scss */
+/* line 204, styles.scss */
 button.hide {
   display: none !important;
 }
 
-/* line 199, styles.scss */
+/* line 207, styles.scss */
 .submit_wrapper {
   display: table;
   width: 100%;
 }
 
-/* line 203, styles.scss */
+/* line 211, styles.scss */
 a.submit {
   background: none repeat scroll 0 0 #369350;
   border: 0 none;
@@ -243,17 +251,17 @@ a.submit {
   -moz-transition: all 0.3s ease 0s;
   -webkit-transition: all 0.3s ease 0s;
 }
-/* line 230, styles.scss */
+/* line 238, styles.scss */
 a.submit:hover {
   background: none repeat scroll 0 0 #286e3c;
   color: white;
 }
-/* line 234, styles.scss */
+/* line 242, styles.scss */
 a.submit:active {
   background-color: #215b32;
 }
 
-/* line 239, styles.scss */
+/* line 247, styles.scss */
 button.tool {
   color: white;
   border: none;
@@ -264,34 +272,34 @@ button.tool {
   background-color: #979797;
   box-shadow: -1px 0 0 #616060;
 }
-/* line 252, styles.scss */
+/* line 260, styles.scss */
 button.tool.active {
   background-color: #616060 !important;
 }
-/* line 255, styles.scss */
+/* line 263, styles.scss */
 button.tool:hover {
   background-color: #8a8a8a;
 }
-/* line 258, styles.scss */
+/* line 266, styles.scss */
 button.tool#rst {
   background-color: #a05553 !important;
   margin-left: 3.5%;
   box-shadow: none;
 }
-/* line 263, styles.scss */
+/* line 271, styles.scss */
 button.tool#rst:hover {
   background-color: #8f4c4a !important;
 }
-/* line 267, styles.scss */
+/* line 275, styles.scss */
 button.tool#reverse {
   margin-left: 3.5%;
 }
-/* line 271, styles.scss */
+/* line 279, styles.scss */
 button.tool#fav.fav_active {
-  color: #e5e556;
+  color: #ffff94;
 }
 
-/* line 277, styles.scss */
+/* line 285, styles.scss */
 .toolbar {
   width: 100%;
 }
@@ -299,84 +307,84 @@ button.tool#fav.fav_active {
 /*==============================================*/
 /*=========== Results Table (mine) =============*/
 /*==============================================*/
-/* line 286, styles.scss */
+/* line 294, styles.scss */
 .table-header {
   margin-top: 30px;
   margin-bottom: 0 !important;
 }
-/* line 290, styles.scss */
+/* line 298, styles.scss */
 .table-header tr {
   font-size: 1.1rem;
 }
-/* line 294, styles.scss */
+/* line 302, styles.scss */
 .table-header td {
   text-align: center;
   width: 50%;
 }
-/* line 298, styles.scss */
+/* line 306, styles.scss */
 .table-header td.chevron {
   width: 10%!important;
   padding: 0;
 }
-/* line 302, styles.scss */
+/* line 310, styles.scss */
 .table-header td.station {
   width: 45%;
 }
-/* line 307, styles.scss */
+/* line 315, styles.scss */
 .table-header .station {
   font-size: 1.4rem;
   color: white;
 }
-/* line 311, styles.scss */
+/* line 319, styles.scss */
 .table-header .mf {
   background-color: #0055a0 !important;
 }
-/* line 314, styles.scss */
+/* line 322, styles.scss */
 .table-header .bs {
   background-color: #f76225 !important;
 }
 
-/* line 320, styles.scss */
+/* line 328, styles.scss */
 .table-wrap {
   max-height: 600px;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 326, styles.scss */
+/* line 334, styles.scss */
 .table_and_tools {
   margin-top: 20px;
   margin-bottom: 0;
 }
 
-/* line 333, styles.scss */
+/* line 341, styles.scss */
 .times {
   background-color: white;
   color: black;
 }
-/* line 337, styles.scss */
+/* line 345, styles.scss */
 .times tr {
   font-size: 1.1rem;
 }
-/* line 341, styles.scss */
+/* line 349, styles.scss */
 .times td {
   text-align: center;
   width: 50%;
 }
 
-/* line 347, styles.scss */
+/* line 355, styles.scss */
 .warn {
   color: #a1504d !important;
   font-weight: bold;
 }
 
-/* line 352, styles.scss */
+/* line 360, styles.scss */
 .pointer {
   background-color: #fcfcb0 !important;
 }
 
 @media only screen and (max-width: 40.062em) {
-  /* line 358, styles.scss */
+  /* line 366, styles.scss */
   .table-wrap {
     max-height: 1200px;
   }
@@ -386,34 +394,34 @@ button.tool#fav.fav_active {
 /*==============================================*/
 /*===== Results Table (twitter bootstrap) ======*/
 /*==============================================*/
-/* line 370, styles.scss */
+/* line 378, styles.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 375, styles.scss */
+/* line 383, styles.scss */
 .table-hide {
   display: none;
 }
 
-/* line 378, styles.scss */
+/* line 386, styles.scss */
 table {
   max-width: 100%;
   background-color: transparent;
 }
 
-/* line 382, styles.scss */
+/* line 390, styles.scss */
 th {
   text-align: left;
 }
 
-/* line 385, styles.scss */
+/* line 393, styles.scss */
 .table {
   width: 100%;
 }
 
-/* line 393, styles.scss */
+/* line 401, styles.scss */
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th,
@@ -425,13 +433,13 @@ th {
   vertical-align: top;
 }
 
-/* line 398, styles.scss */
+/* line 406, styles.scss */
 .table > thead > tr > th {
   vertical-align: bottom;
   border-bottom: 2px solid #dddddd;
 }
 
-/* line 407, styles.scss */
+/* line 415, styles.scss */
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
 .table > thead:first-child > tr:first-child > th,
@@ -441,17 +449,17 @@ th {
   border-top: 0;
 }
 
-/* line 410, styles.scss */
+/* line 418, styles.scss */
 .table > tbody + tbody {
   border-top: 2px solid #dddddd;
 }
 
-/* line 413, styles.scss */
+/* line 421, styles.scss */
 .table .table {
   background-color: #f9f9f9;
 }
 
-/* line 421, styles.scss */
+/* line 429, styles.scss */
 .table-condensed > thead > tr > th,
 .table-condensed > tbody > tr > th,
 .table-condensed > tfoot > tr > th,
@@ -461,26 +469,26 @@ th {
   padding: 5px;
 }
 
-/* line 426, styles.scss */
+/* line 434, styles.scss */
 .table-striped > tbody > tr:nth-child(odd) > td,
 .table-striped > tbody > tr:nth-child(odd) > th {
   background-color: #e4e4e4;
 }
 
-/* line 430, styles.scss */
+/* line 438, styles.scss */
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
   background-color: #f5f5f5;
 }
 
-/* line 433, styles.scss */
+/* line 441, styles.scss */
 table col[class*="col-"] {
   position: static;
   float: none;
   display: table-column;
 }
 
-/* line 439, styles.scss */
+/* line 447, styles.scss */
 table td[class*="col-"],
 table th[class*="col-"] {
   position: static;
@@ -488,7 +496,7 @@ table th[class*="col-"] {
   display: table-cell;
 }
 
-/* line 455, styles.scss */
+/* line 463, styles.scss */
 .table > thead > tr > td.active,
 .table > tbody > tr > td.active,
 .table > tfoot > tr > td.active,
@@ -504,7 +512,7 @@ table th[class*="col-"] {
   background-color: #f5f5f5;
 }
 
-/* line 461, styles.scss */
+/* line 469, styles.scss */
 .table-hover > tbody > tr > td.active:hover,
 .table-hover > tbody > tr > th.active:hover,
 .table-hover > tbody > tr.active:hover > td,
@@ -512,7 +520,7 @@ table th[class*="col-"] {
   background-color: #e8e8e8;
 }
 
-/* line 475, styles.scss */
+/* line 483, styles.scss */
 .table > thead > tr > td.success,
 .table > tbody > tr > td.success,
 .table > tfoot > tr > td.success,
@@ -528,7 +536,7 @@ table th[class*="col-"] {
   background-color: #dff0d8;
 }
 
-/* line 481, styles.scss */
+/* line 489, styles.scss */
 .table-hover > tbody > tr > td.success:hover,
 .table-hover > tbody > tr > th.success:hover,
 .table-hover > tbody > tr.success:hover > td,
@@ -536,7 +544,7 @@ table th[class*="col-"] {
   background-color: #d0e9c6;
 }
 
-/* line 495, styles.scss */
+/* line 503, styles.scss */
 .table > thead > tr > td.info,
 .table > tbody > tr > td.info,
 .table > tfoot > tr > td.info,
@@ -552,7 +560,7 @@ table th[class*="col-"] {
   background-color: #d9edf7;
 }
 
-/* line 501, styles.scss */
+/* line 509, styles.scss */
 .table-hover > tbody > tr > td.info:hover,
 .table-hover > tbody > tr > th.info:hover,
 .table-hover > tbody > tr.info:hover > td,
@@ -560,7 +568,7 @@ table th[class*="col-"] {
   background-color: #c4e3f3;
 }
 
-/* line 515, styles.scss */
+/* line 523, styles.scss */
 .table > thead > tr > td.warning,
 .table > tbody > tr > td.warning,
 .table > tfoot > tr > td.warning,
@@ -576,7 +584,7 @@ table th[class*="col-"] {
   background-color: #fcf8e3;
 }
 
-/* line 521, styles.scss */
+/* line 529, styles.scss */
 .table-hover > tbody > tr > td.warning:hover,
 .table-hover > tbody > tr > th.warning:hover,
 .table-hover > tbody > tr.warning:hover > td,
@@ -584,7 +592,7 @@ table th[class*="col-"] {
   background-color: #faf2cc;
 }
 
-/* line 535, styles.scss */
+/* line 543, styles.scss */
 .table > thead > tr > td.danger,
 .table > tbody > tr > td.danger,
 .table > tfoot > tr > td.danger,
@@ -600,7 +608,7 @@ table th[class*="col-"] {
   background-color: #f2dede;
 }
 
-/* line 541, styles.scss */
+/* line 549, styles.scss */
 .table-hover > tbody > tr > td.danger:hover,
 .table-hover > tbody > tr > th.danger:hover,
 .table-hover > tbody > tr.danger:hover > td,
@@ -609,7 +617,7 @@ table th[class*="col-"] {
 }
 
 @media (max-width: 767px) {
-  /* line 545, styles.scss */
+  /* line 553, styles.scss */
   .table-responsive {
     width: 100%;
     margin-bottom: 15px;
@@ -620,12 +628,12 @@ table th[class*="col-"] {
     -webkit-overflow-scrolling: touch;
   }
 
-  /* line 554, styles.scss */
+  /* line 562, styles.scss */
   .table-responsive > .table {
     margin-bottom: 0;
   }
 
-  /* line 562, styles.scss */
+  /* line 570, styles.scss */
   .table-responsive > .table > thead > tr > th,
   .table-responsive > .table > tbody > tr > th,
   .table-responsive > .table > tfoot > tr > th,
@@ -635,12 +643,12 @@ table th[class*="col-"] {
     white-space: nowrap;
   }
 
-  /* line 565, styles.scss */
+  /* line 573, styles.scss */
   .table-responsive > .table-bordered {
     border: 0;
   }
 
-  /* line 573, styles.scss */
+  /* line 581, styles.scss */
   .table-responsive > .table-bordered > thead > tr > th:first-child,
   .table-responsive > .table-bordered > tbody > tr > th:first-child,
   .table-responsive > .table-bordered > tfoot > tr > th:first-child,
@@ -650,7 +658,7 @@ table th[class*="col-"] {
     border-left: 0;
   }
 
-  /* line 581, styles.scss */
+  /* line 589, styles.scss */
   .table-responsive > .table-bordered > thead > tr > th:last-child,
   .table-responsive > .table-bordered > tbody > tr > th:last-child,
   .table-responsive > .table-bordered > tfoot > tr > th:last-child,
@@ -660,7 +668,7 @@ table th[class*="col-"] {
     border-right: 0;
   }
 
-  /* line 587, styles.scss */
+  /* line 595, styles.scss */
   .table-responsive > .table-bordered > tbody > tr:last-child > th,
   .table-responsive > .table-bordered > tfoot > tr:last-child > th,
   .table-responsive > .table-bordered > tbody > tr:last-child > td,
@@ -671,27 +679,27 @@ table th[class*="col-"] {
 /*==============================================*/
 /*=============== BSL/MFL Switch ===============*/
 /*==============================================*/
-/* line 597, styles.scss */
+/* line 605, styles.scss */
 .station_label {
   display: inline-block;
   color: #afaeae;
   font-size: 22px;
 }
-/* line 603, styles.scss */
+/* line 611, styles.scss */
 .station_label.mf {
   color: #0055a0;
 }
-/* line 606, styles.scss */
+/* line 614, styles.scss */
 .station_label.bs {
   color: #f76225;
 }
 
-/* line 610, styles.scss */
+/* line 618, styles.scss */
 .switch-wrapper {
   display: inline-block;
 }
 
-/* line 615, styles.scss */
+/* line 623, styles.scss */
 .onoffswitch {
   position: relative;
   width: 90px;
@@ -700,12 +708,12 @@ table th[class*="col-"] {
   -ms-user-select: none;
 }
 
-/* line 619, styles.scss */
+/* line 627, styles.scss */
 .onoffswitch-checkbox {
   display: none;
 }
 
-/* line 622, styles.scss */
+/* line 630, styles.scss */
 .onoffswitch-label {
   display: block;
   overflow: hidden;
@@ -714,7 +722,7 @@ table th[class*="col-"] {
   background-color: #afaeae;
 }
 
-/* line 629, styles.scss */
+/* line 637, styles.scss */
 .onoffswitch-inner {
   width: 200%;
   margin-left: -100%;
@@ -724,7 +732,7 @@ table th[class*="col-"] {
   transition: margin 0.3s ease-in 0s;
 }
 
-/* line 636, styles.scss */
+/* line 644, styles.scss */
 .onoffswitch-inner:before, .onoffswitch-inner:after {
   float: left;
   width: 50%;
@@ -740,19 +748,19 @@ table th[class*="col-"] {
   box-sizing: border-box;
 }
 
-/* line 646, styles.scss */
+/* line 654, styles.scss */
 .onoffswitch-inner:before {
   content: " ";
   padding-left: 10px;
 }
 
-/* line 650, styles.scss */
+/* line 658, styles.scss */
 .onoffswitch-inner:after {
   padding-right: 10px;
   text-align: right;
 }
 
-/* line 654, styles.scss */
+/* line 662, styles.scss */
 .onoffswitch-switch {
   width: 21px;
   margin: 4.5px;
@@ -768,12 +776,12 @@ table th[class*="col-"] {
   transition: all 0.3s ease-in 0s;
 }
 
-/* line 662, styles.scss */
+/* line 670, styles.scss */
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
   margin-left: 0;
 }
 
-/* line 665, styles.scss */
+/* line 673, styles.scss */
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
   right: 0px;
 }
@@ -782,7 +790,7 @@ table th[class*="col-"] {
 /*============== Media queries =================*/
 /*==============================================*/
 @media only screen and (max-width: 40.062em) {
-  /* line 675, styles.scss */
+  /* line 683, styles.scss */
   html {
     background: url(../img/bg_mobile.jpg) no-repeat center center fixed;
     background-color: #2a363b;
@@ -792,13 +800,13 @@ table th[class*="col-"] {
     background-size: cover;
   }
 
-  /* line 684, styles.scss */
+  /* line 692, styles.scss */
   .table-wrap {
     max-height: 1200px;
   }
 
   /*keeps table fixed to bottom for most mobile devices*/
-  /* line 688, styles.scss */
+  /* line 696, styles.scss */
   #menu-icon {
     display: inline-block !important;
     font-size: 2.5em;
@@ -806,7 +814,7 @@ table th[class*="col-"] {
     line-height: 2.5em;
   }
 
-  /* line 695, styles.scss */
+  /* line 703, styles.scss */
   nav ul, nav:active ul {
     display: none;
     position: absolute;
@@ -819,7 +827,7 @@ table th[class*="col-"] {
     border-radius: 4px 0 4px 4px;
   }
 
-  /* line 707, styles.scss */
+  /* line 715, styles.scss */
   nav li {
     text-align: center;
     width: 100%;
@@ -827,13 +835,13 @@ table th[class*="col-"] {
     margin: 0;
   }
 
-  /* line 714, styles.scss */
+  /* line 722, styles.scss */
   nav:hover ul {
     display: block;
   }
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 722, styles.scss */
+  /* line 730, styles.scss */
   html {
     background: url(../img/bg1.jpg) no-repeat center center fixed;
     background-color: #2a363b;
@@ -843,12 +851,12 @@ table th[class*="col-"] {
     background-size: cover;
   }
 
-  /* line 730, styles.scss */
+  /* line 738, styles.scss */
   td.station {
     width: 47.5%;
   }
 
-  /* line 733, styles.scss */
+  /* line 741, styles.scss */
   td.chevron {
     width: 5%;
     padding: 0;

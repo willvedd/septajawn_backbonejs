@@ -34,23 +34,11 @@ var stations = new StationList();
 console.time('fetch');
 stations.fetch({
     success: function(){
-        start_list.render();
-        end_list.render();
-        if( ($.cookie.read('line_fav')!=null) && ($.cookie.read('line_fav')=='mf') ){
-            $('.line1').click();
-            console.log("line cookie mf and set");
+        if( ($.cookie.read('line_fav')!=null) && ($.cookie.read('line_fav')=='mf') ){//is line cookie set?
+            $('.line1').click();//click the line selector...kinda hacky but necessary because its almost pure CSS
         }
-        else{
-            console.log("line cookie NOT mf");
-            if ($.cookie.read('start_fav')!=null){
-                console.log("Cookie set");
-                $('#start_dest').val($.cookie.read('start_fav'));
-                $('#end_dest').val($.cookie.read('end_fav'));
-            }
-            else{
-                console.log("Cookie not set");
-            };
-        }   
+        start_list.render($.cookie.read('start_fav'),'#start_dest');//passing start cookie and jquery element as param
+        end_list.render($.cookie.read('end_fav'),'#end_dest');//passing end cookie and jquery element as param
     },
     error: function(){
         console.log("Fetching error");
@@ -85,7 +73,7 @@ var StationListView = Backbone.View.extend({
 
     initialize: function() {},
 
-    render: function() {
+    render: function(cookie,cookie_list) {
         console.timeEnd('list_view_render');
         this.$el.empty(); //clears existing elements
 
@@ -109,6 +97,15 @@ var StationListView = Backbone.View.extend({
             	}
             };
         }, this); //"This" loses reference inside loop, regains it with appended ",this"
+
+        if(cookie!=null){
+            console.log("Cookie set: "+cookie);
+            $(cookie_list).val(cookie);
+        }
+        else{
+            console.log("Cooke not set");
+        };
+
         return this;
     },
 

@@ -92,15 +92,13 @@ var StationListView = Backbone.View.extend({
             		var stationView = new StationView({
                     model: station
                 });
-
                 this.$el.append(stationView.el);
             	}
             };
         }, this); //"This" loses reference inside loop, regains it with appended ",this"
 
-        if(cookie!=null){
-            console.log("Cookie set: "+cookie);
-            $(cookie_list).val(cookie);
+        if(cookie!=null){//if cookie value is valid
+            $(cookie_list).val(cookie);//setting the drop down (cookie list) to the cookie value
         }
         else{
             console.log("Cooke not set");
@@ -130,7 +128,6 @@ end_list = new StationListView({
     el: '#end_dest',
 });
 
-console.log("start_list"+start_list);
 
 
 //---------------------Global View---------------------------------
@@ -152,9 +149,7 @@ var GlobalView = Backbone.View.extend({
         'change #end_dest': 'startlineset',
     },
 
-    initialize: function(){
-        console.log("global init"); 
-    },
+    initialize: function(){},
 
     submit: function() {
     	console.time('submit');
@@ -195,16 +190,24 @@ var GlobalView = Backbone.View.extend({
         window.end_schedule = [];
 
         var j = 0;
+        var pointer = 0;
         console.time('scheduleFor');
-        for(i=0; i<(start.get(instruct).length);i++){
+        for(i=0; i<(start_preschedule.length);i++){
             if(start_preschedule[i]!=null){
                 if(end_preschedule[i]!=null){
                     start_schedule[j] = timeformat(start_preschedule[i]);
                     end_schedule[j] = timeformat(end_preschedule[i]);
+
+                    if (start_preschedule[i]<time()){
+                        pointer++;//setting pointer so jumps to relevant time
+                    };
                     j++;
                 };
             };
         };
+        console.log("Pointer: "+pointer+", pointing to: "+start_schedule[pointer]);
+        console.log("Previous: "+start_schedule[pointer-1]);
+        console.log("J: "+j);
         console.timeEnd('scheduleFor');
 
         schedule.render(start,end,day);
@@ -313,7 +316,6 @@ var ToolbarView = Backbone.View.extend({
 		this.$el.empty();
 		this.$el.append(this.template);
         console.log("toolbar rendering");
-        console.log($("."+day));
         $("#"+day).addClass("active");
 
 		console.timeEnd('toolbar render');
@@ -376,9 +378,6 @@ $(function() {
 	    return (time[0] + ":" + time[1] + " " + meridian); //returning a string of the time
 	};
 
-   
-
-
     console.time('make schedule view');
     schedule = new ScheduleView();
     console.timeEnd('make schedule view');
@@ -388,9 +387,6 @@ $(function() {
     console.timeEnd('make toolbar view');
 
     console.timeEnd('load');
-
-    console.log("Start saved: "+$.cookie.read('start_fav'));
-    console.log("End saved: "+$.cookie.read('end_fav'));
 });
 
 

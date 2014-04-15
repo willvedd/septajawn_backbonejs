@@ -36,6 +36,13 @@ stations.fetch({
     success: function(){
         start_list.render();
         end_list.render();
+        if ($.cookie.read('start_fav')!=null){
+            console.log("Cookie set");
+            $('#start_dest').val($.cookie.read('start_fav');
+        }
+        else{
+            console.log("Cookie not set");
+        };
     },
     error: function(){
         console.log("Fetching error");
@@ -54,9 +61,6 @@ var StationView = Backbone.View.extend({
 
     initialize: function() {
         this.render();
-        if ($.cookie.read('start_fav')!=null){
-            console.log("Start cookie set!")
-        };
     },
     render: function() {
         this.$el.html(this.template(this.model.toJSON()));

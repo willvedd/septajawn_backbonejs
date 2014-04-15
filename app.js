@@ -51,7 +51,6 @@ var StationView = Backbone.View.extend({
 
 //---------------------Stations View---------------------------------
 
-
 var StationListView = Backbone.View.extend({
 
     tagName: 'select',
@@ -75,9 +74,7 @@ var StationListView = Backbone.View.extend({
 
         this.collection.each(function(station) { //generates models from stations collection that correlate to correct station selection
             if ( (station.get('line') == line) ) {
-            	if(station.cid == $('#start_dest').val()){
-            	}
-            	else{
+            	if(station.cid != $('#start_dest').val()){
             		var stationView = new StationView({
                     model: station
                 });
@@ -139,7 +136,7 @@ var GlobalView = Backbone.View.extend({
         };
         console.timeEnd("hide");
 
-        this.schedule(start_station,end_station,day());//passing selected objects to scheduling logic
+        this.schedule(start_station,end_station,day);//passing selected objects to scheduling logic
     
     	console.timeEnd('submit');
     },
@@ -169,7 +166,7 @@ var GlobalView = Backbone.View.extend({
                 if(end_preschedule[i]!=null){
                     start_schedule[j] = timeformat(start_preschedule[i]);
                     end_schedule[j] = timeformat(end_preschedule[i]);
-                    j++
+                    j++;
                 };
             };
         };
@@ -190,19 +187,19 @@ var GlobalView = Backbone.View.extend({
     },
 
     setWeek: function(){
-    	this.schedule(start_station,end_station,'wk');
-        $('#wk').addClass("active");
+        day = 'wk';
+    	this.schedule(start_station,end_station,day);
     },
 
     setSat: function(){
-    	this.schedule(start_station,end_station,'sat');
-        $('#sat').addClass("active");
+        day = 'sat';
+    	this.schedule(start_station,end_station,day);
     },
 
     setSun: function(){
     	console.time('setSun');
-    	this.schedule(start_station,end_station,'sun');
-        $('#sun').addClass("active");
+        day = 'sun';
+    	this.schedule(start_station,end_station,day);
         console.timeEnd('setSun');
     },
 
@@ -211,33 +208,37 @@ var GlobalView = Backbone.View.extend({
         temp_station = start_station;
         start_station = end_station;
         end_station = temp_station;
-        this.schedule(start_station,end_station,day());
+        this.schedule(start_station,end_station,day);
         console.timeEnd('reverse');
     },
 
     favorite: function(){
+        console.time("favorite");
         console.log("Favorites: "+start_station.cid+" and "+end_station.cid);
+        $('#fav').addClass("fav_active");
         $.cookie.write('start_fav', start_station.cid, 24 * 60 * 60 *365);
         $.cookie.write('end_fav', end_station.cid, 24 * 60 * 60 *365);
+        console.timeEnd("favorite");
     },
 
     lineset: function() {
     	console.time('lineset');
         start_list.reset();
-        end_list.reset()
-        schedule.$el.empty();
+        end_list.reset();
+        $('.label2').toggleClass("mf");
+        $('.label1').toggleClass("bs");
         console.timeEnd('lineset');
     },
 
     endlineset: function(){
     	if($('#start_dest').val()==$('#end_dest').val()){
-    		end_list.reset()
+    		end_list.reset();
     	};
     },
 
     startlineset: function(){
     	if($('#end_dest').val()==$('#start_dest').val()){
-    		start_list.reset()
+    		start_list.reset();
     	};
     },
 });
@@ -271,6 +272,10 @@ var ToolbarView = Backbone.View.extend({
 		console.time('toolbar render');
 		this.$el.empty();
 		this.$el.append(this.template);
+        console.log("toolbar rendering");
+        console.log($("."+day));
+        $("#"+day).addClass("active");
+
 		console.timeEnd('toolbar render');
 	},
 
@@ -295,6 +300,8 @@ $(function() {
             return "wk";
         }
     };
+
+    window.day = day();
 
     time = function(){
     	var now = new Date();

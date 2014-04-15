@@ -13,12 +13,14 @@ $sept_blue: #0055a0;
 $table1:#f9f9f9;
 $table2:#e4e4e4;
 $reset:#a05553;
+$toolbar_other:#C0BD70;
 $toolbar:#979797;
 $toolbar_active:#616060;
 $black: #000000;
 $white: #ffffff;
 $warning: #a1504d;
 $highlight: #FCFCB0;
+$star_yellow: #E5E556;
 $switch_bg: #afaeae;
 
 
@@ -49,7 +51,7 @@ $switch_bg: #afaeae;
   font-weight: normal;
   speak: none;
   display: inline-block;
-  width: 1em;
+  width: 1rem;
   text-align: center;
   }
 
@@ -98,7 +100,7 @@ nav {
     display: inline-block;
     float: left;
     width: 100%;
-    line-height: 2.5em;
+    line-height: 2.5rem;
     font-family: Helvetica Neue, Helvetica, Arial;
 
   .wrapper{
@@ -115,7 +117,7 @@ nav {
  
   .branding{
     font-size: 2.5rem!important;
-    line-height: 2.5em;
+    line-height: 2.5rem;
     font-family: 'machinescript',arial,sans-serif;
     color: $white;
     }
@@ -123,8 +125,8 @@ nav {
   a{
   color: $switch_bg;
   text-decoration: none;
-  font-size:1em;
-  padding: 0.5em;
+  font-size:1rem;
+  padding: 0.5rem;
   font-weight: bold;
   }
 
@@ -194,71 +196,82 @@ nav {
 button.hide{
     display: none !important;
 }
-
+.submit_wrapper{
+  display:table;
+  width: 100%;
+}
 a.submit{
-    width: 100%;
-    border: 0 none;
-    border-radius: 2px 2px 2px 2px;
+  background: none repeat scroll 0 0 $submit;
+  border: 0 none;
+  border-radius: 2px 2px 2px 2px;
+  color: $white;
+  cursor: pointer;
+  display: table-cell;
+  font-size: 1.4rem;
+  font-family: Arial,sans-serif;
+  font-weight: bold;
+  height: 75px;
+  line-height: 1.4rem;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  outline-color: transparent;
+  outline-style: none;
+  padding: 7px 10px;
+  position: relative;
+  text-transform: none;
+  text-align: center; /* DELETE WHEN WIDTH AUTO */
+  text-decoration: none;
+  transition: all 0.3s ease 0s;
+  vertical-align:middle;
+  width: 100%;
+  -moz-transition: all 0.3s ease 0s;
+  -webkit-transition: all 0.3s ease 0s;
+
+  &:hover {
+    background: none repeat scroll 0 0 darken($submit,10%);
     color: $white;
-    height: 75px;
-    position: relative;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Arial,sans-serif;
-    font-size: 1.25rem;
-    font-weight: bold;
-    line-height: 20px;
-    margin-bottom: 20px;
-    margin-top: 10px;
-    padding: 7px 10px;
-    text-transform: none;
-    transition: all 0.3s ease 0s;
-    -moz-transition: all 0.3s ease 0s;
-    -webkit-transition: all 0.3s ease 0s;
-    text-align: center; /* DELETE WHEN WIDTH AUTO */
-    background: none repeat scroll 0 0 $submit;
-    outline-color: transparent;
-    outline-style: none;
-    text-decoration: none;
-    
-    &:hover {
-      background: none repeat scroll 0 0 darken($submit,10%);
-      color: $white;
-    }
-    &:active{
-      background-color: darken($submit, 15%);
-    }
+  }
+  &:active{
+    background-color: darken($submit, 15%);
+  }
 }
 
 button.tool{
   color: $white;
   border: none;
-  width: 15%;
+  width: 15.5%;
   height: 50px;
   float:left;
+  font-size:1.1rem;
+  background-color: $toolbar;
   box-shadow: -1px 0 0 $toolbar_active;
 
   &.day{
-    background-color: $toolbar;
+    ;
   }
   &.active{
     background-color: $toolbar_active !important;
   }
   &:hover{
-    background-color: darken($toolbar,1%);
+    background-color: darken($toolbar,5%);
   }
   &#rst{
     background-color: $reset!important;
-    margin-left:4%;
+    margin-left:3.5%;
     box-shadow: none;
     
     &:hover{
-      background-color: darken($reset,15%)!important;
+      background-color: darken($reset,5%)!important;
     }
   }
   &#reverse{
-    background-color:$submit;
+    margin-left:3.5%;
   } 
+  &#fav{
+    &.fav_active{
+      color:$star_yellow;
+    }
+  }
 }
 
 .toolbar{
@@ -305,7 +318,7 @@ button.tool{
 
 
 .table-wrap{
-  max-height: 400px;
+  max-height: 600px;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
@@ -676,7 +689,6 @@ table th[class*="col-"] {
     display:inline-block !important;
     font-size: 2.5em;
     margin-right: 30px;
-    float: right;
     line-height: 2.5em;
   }
 

@@ -38,7 +38,7 @@ stations.fetch({
         end_list.render();
         if ($.cookie.read('start_fav')!=null){
             console.log("Cookie set");
-            $('#start_dest').val($.cookie.read('start_fav');
+            $('#start_dest').val($.cookie.read('start_fav'));
         }
         else{
             console.log("Cookie not set");

@@ -36,15 +36,19 @@ stations.fetch({
     success: function(){
         start_list.render();
         end_list.render();
-
-        if ($.cookie.read('start_fav')!=null){
-            console.log("Cookie set");
-            $('#start_dest').val($.cookie.read('start_fav'));
-            $('#end_dest').val($.cookie.read('end_fav'));
+        if( ($.cookie.read('line_fav')!=null) && ($.cookie.read('line_fav')=='mf') ){
+            $('.label1').click();
         }
         else{
-            console.log("Cookie not set");
-        };
+            if ($.cookie.read('start_fav')!=null){
+                console.log("Cookie set");
+                $('#start_dest').val($.cookie.read('start_fav'));
+                $('#end_dest').val($.cookie.read('end_fav'));
+            }
+            else{
+                console.log("Cookie not set");
+            };
+        }   
     },
     error: function(){
         console.log("Fetching error");
@@ -250,6 +254,7 @@ var GlobalView = Backbone.View.extend({
         $('#fav').addClass("fav_active");
         $.cookie.write('start_fav', start_station.cid, 24 * 60 * 60 *365);
         $.cookie.write('end_fav', end_station.cid, 24 * 60 * 60 *365);
+        $.cookie.write('line_fav'), start_station.attributes.line, 24*60*60*365);
         console.timeEnd("favorite");
     },
 

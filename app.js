@@ -254,7 +254,7 @@ var GlobalView = Backbone.View.extend({
         $('#fav').addClass("fav_active");
         $.cookie.write('start_fav', start_station.cid, 24 * 60 * 60 *365);
         $.cookie.write('end_fav', end_station.cid, 24 * 60 * 60 *365);
-        $.cookie.write('line_fav'), start_station.attributes.line, 24*60*60*365);
+        $.cookie.write('line_fav', start_station.attributes.line, 24*60*60*365);
         console.timeEnd("favorite");
     },
 

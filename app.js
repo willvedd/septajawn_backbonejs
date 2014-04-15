@@ -1,5 +1,12 @@
 //-------------------------Model and Collection-----------------------------
 console.time('load');
+console.time('fetch end');
+console.time('list_view_initialize');
+console.time('list_view_render');
+console.time('list_view_called');
+console.time('list_view_last1');
+console.time('list_view_last1');
+
 var Station = Backbone.Model.extend({
     defaults: {
         id: null,
@@ -25,8 +32,15 @@ var StationList = Backbone.Collection.extend({
 var stations = new StationList();
 
 console.time('fetch');
-stations.fetch();
-console.timeEnd('fetch');
+stations.fetch({
+    success: function(){
+        start_list.render();
+        end_list.render();
+    },
+    error: function(){
+        console.log("Fetching error");
+    },
+})
 
 //----------------------- Station View -------------------------------
 
@@ -40,13 +54,15 @@ var StationView = Backbone.View.extend({
 
     initialize: function() {
         this.render();
+        if ($.cookie.read('start_fav')!=null){
+            console.log("Start cookie set!")
+        };
     },
     render: function() {
         this.$el.html(this.template(this.model.toJSON()));
         this.el.value = this.model.cid;//Sets value for drop down selections, allows future binding
         return this;
     },
-
 });
 
 //---------------------Stations View---------------------------------
@@ -55,12 +71,10 @@ var StationListView = Backbone.View.extend({
 
     tagName: 'select',
 
-    intialize: function() {
-        this.render();
-    },
+    initialize: function() {},
 
     render: function() {
-
+        console.timeEnd('list_view_render');
         this.$el.empty(); //clears existing elements
 
         if($('#myonoffswitch').is(":checked")){
@@ -83,7 +97,6 @@ var StationListView = Backbone.View.extend({
             	}
             };
         }, this); //"This" loses reference inside loop, regains it with appended ",this"
-
         return this;
     },
 
@@ -96,6 +109,20 @@ var StationListView = Backbone.View.extend({
         return ($(this.$el).val());
     },
 });
+
+start_list = new StationListView({
+    collection: stations,
+    el: '#start_dest',
+});
+console.timeEnd('list_view_called');
+
+end_list = new StationListView({
+    collection: stations,
+    el: '#end_dest',
+});
+
+console.log("start_list"+start_list);
+
 
 //---------------------Global View---------------------------------
 
@@ -117,8 +144,7 @@ var GlobalView = Backbone.View.extend({
     },
 
     initialize: function(){
-    	start_list.render();
-    	end_list.render();
+        console.log("global init"); 
     },
 
     submit: function() {
@@ -243,6 +269,10 @@ var GlobalView = Backbone.View.extend({
     },
 });
 
+console.time('make global view');
+global = new GlobalView();
+console.timeEnd('make global view');
+
 
 //---------------------Schedule View---------------------------------
 
@@ -336,20 +366,8 @@ $(function() {
 	    return (time[0] + ":" + time[1] + " " + meridian); //returning a string of the time
 	};
 
-    start_list = new StationListView({
-        collection: stations,
-        el: '#start_dest',
+   
 
-    });
-
-    end_list = new StationListView({
-        collection: stations,
-        el: '#end_dest'
-    });
-
-	console.time('make global view');
-    global = new GlobalView();
-    console.timeEnd('make global view');
 
     console.time('make schedule view');
     schedule = new ScheduleView();
@@ -364,7 +382,5 @@ $(function() {
     console.log("Start saved: "+$.cookie.read('start_fav'));
     console.log("End saved: "+$.cookie.read('end_fav'));
 });
-
-
 
 

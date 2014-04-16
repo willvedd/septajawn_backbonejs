@@ -161,7 +161,6 @@ var GlobalView = Backbone.View.extend({
 
         console.time("hide");
         if((start_station!=undefined)&&(end_station!=undefined)){//validates the presence of data, or else the drop downs will disappear
-            console.log("hiding");
             $('.platter').hide();
         };
         console.timeEnd("hide");
@@ -205,11 +204,7 @@ var GlobalView = Backbone.View.extend({
                 };
             };
         };
-        console.log("Pointer: "+pointer+", pointing to: "+start_schedule[pointer]);
-        console.log("Previous: "+start_schedule[pointer-1]);
-        console.log("J: "+j);
         console.timeEnd('scheduleFor');
-
         schedule.render(start,end,day);
         console.timeEnd('schedule');
     },
@@ -252,7 +247,6 @@ var GlobalView = Backbone.View.extend({
 
     favorite: function(){
         console.time("favorite");
-        console.log("Favorites: "+start_station.cid+" and "+end_station.cid);
         $('#fav').addClass("fav_active");
         $.cookie.write('start_fav', start_station.cid, 24 * 60 * 60 *365);
         $.cookie.write('end_fav', end_station.cid, 24 * 60 * 60 *365);
@@ -301,13 +295,19 @@ var ScheduleView = Backbone.View.extend({
 
     render: function(start,end,day){
         this.$el.html(this.template(start.toJSON()));
+        console.time("color set");
+        if(start_station.get('line')=='mf'){//sets the color of the schedule's header
+            $('td.station').toggleClass('bs');
+        };
+        console.timeEnd("color set");
         console.time("autoscroll_exec");
         console.time("autoscroll");
-        $('.table-wrap').animate({//automatically scrolls to next time
-            scrollTop: $("'.table-wrap tr:nth-child("+pointer+")'").position().top},700,'',function(){
-                console.log("autoscroll complete!");
-                console.timeEnd("autoscroll");});
+        $("'.table-wrap tr:nth-child("+(pointer+1)+")'").addClass("pointer");
 
+        $('.table-wrap').animate({//automatically scrolls to next time,
+            scrollTop: $("'.table-wrap tr:nth-child("+(pointer)+")'").position().top},400,'',function(){
+                console.timeEnd("autoscroll");
+        });
         console.timeEnd("autoscroll_exec");
         toolbar.render();
     },
@@ -322,7 +322,6 @@ var ToolbarView = Backbone.View.extend({
 		console.time('toolbar render');
 		this.$el.empty();
 		this.$el.append(this.template);
-        console.log("toolbar rendering");
         $("#"+day).addClass("active");
 
 		console.timeEnd('toolbar render');

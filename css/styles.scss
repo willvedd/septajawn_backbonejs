@@ -314,6 +314,7 @@ button.tool{
   .station{
     font-size: 1.4rem;
     color: $white;
+    background-color: $sept_blue;
   }
   .mf{
     background-color: $sept_blue!important;
@@ -322,7 +323,6 @@ button.tool{
     background-color: $sept_orange!important;
   }
 }
-
 
 .table-wrap{
   max-height: 600px;
@@ -429,7 +429,7 @@ th {
   padding: 5px;
 }
 
-.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd),
 .table-striped > tbody > tr:nth-child(odd) > th {
   background-color: $table2; //Inserted non-default color
 }

@@ -333,12 +333,13 @@ button.tool#fav.fav_active {
 .table-header .station {
   font-size: 1.4rem;
   color: white;
+  background-color: #0055a0;
 }
-/* line 318, styles.scss */
+/* line 319, styles.scss */
 .table-header .mf {
   background-color: #0055a0 !important;
 }
-/* line 321, styles.scss */
+/* line 322, styles.scss */
 .table-header .bs {
   background-color: #f76225 !important;
 }
@@ -469,7 +470,7 @@ th {
 }
 
 /* line 433, styles.scss */
-.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd),
 .table-striped > tbody > tr:nth-child(odd) > th {
   background-color: #e4e4e4;
 }

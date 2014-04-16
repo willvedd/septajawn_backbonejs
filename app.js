@@ -360,8 +360,14 @@ $(function() {
     	if (hours == 0){
     		hours = 24;
     	};
-    	var minutes = now.getMinutes(); 
-   		return hours+"."+minutes;//setting time 
+    	var minutes = now.getMinutes();
+        if(minutes<10){
+            return hours+".0"+minutes;//setting time 
+        }
+        else{
+            return hours+"."+minutes;//setting time 
+        } 
+   		
     }
 
     timeformat = function(time) { //formats time from a double into hh:mm for rendering purposes only

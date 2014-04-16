@@ -190,7 +190,7 @@ var GlobalView = Backbone.View.extend({
         window.end_schedule = [];
 
         var j = 0;
-        var pointer = 0;
+        window.pointer = 0;
         console.time('scheduleFor');
         for(i=0; i<(start_preschedule.length);i++){
             if(start_preschedule[i]!=null){
@@ -301,7 +301,14 @@ var ScheduleView = Backbone.View.extend({
 
     render: function(start,end,day){
         this.$el.html(this.template(start.toJSON()));
-        $('.table-wrap').height($(window).height()-150);
+        console.time("autoscroll_exec");
+        console.time("autoscroll");
+        $('.table-wrap').animate({//automatically scrolls to next time
+            scrollTop: $("'.table-wrap tr:nth-child("+pointer+")'").position().top},700,'',function(){
+                console.log("autoscroll complete!");
+                console.timeEnd("autoscroll");});
+
+        console.timeEnd("autoscroll_exec");
         toolbar.render();
     },
 });

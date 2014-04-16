@@ -34,6 +34,7 @@ var stations = new StationList();
 console.time('fetch');
 stations.fetch({
     success: function(){
+        console.timeEnd('fetch');
         if( ($.cookie.read('line_fav')!=null) && ($.cookie.read('line_fav')=='mf') ){//is line cookie set?
             $('.line1').click();//click the line selector...kinda hacky but necessary because its almost pure CSS
         }
@@ -142,6 +143,7 @@ var GlobalView = Backbone.View.extend({
         'click #sat' : 'setSat',
         'click #sun' : 'setSun',
         'click #rst': 'reset',
+        'click .branding a': 'reset',
         'click #reverse': 'reverse',
         'click #fav': 'favorite',
         'change input[type=checkbox]': 'lineset',
@@ -166,8 +168,6 @@ var GlobalView = Backbone.View.extend({
         console.timeEnd("hide");
 
         this.schedule(start_station,end_station,day);//passing selected objects to scheduling logic
-    
-    	console.timeEnd('submit');
     },
 
 
@@ -190,7 +190,6 @@ var GlobalView = Backbone.View.extend({
 
         var j = 0;
         window.pointer = 0;
-        console.time('scheduleFor');
         for(i=0; i<(start_preschedule.length);i++){
             if(start_preschedule[i]!=null){
                 if(end_preschedule[i]!=null){
@@ -204,7 +203,6 @@ var GlobalView = Backbone.View.extend({
                 };
             };
         };
-        console.timeEnd('scheduleFor');
         schedule.render(start,end,day);
         console.timeEnd('schedule');
     },
@@ -294,22 +292,26 @@ var ScheduleView = Backbone.View.extend({
     },
 
     render: function(start,end,day){
+        console.time('render');
         this.$el.html(this.template(start.toJSON()));
         console.time("color set");
         if(start_station.get('line')=='mf'){//sets the color of the schedule's header
             $('td.station').toggleClass('bs');
         };
+        console.timeEnd('submit');
         console.timeEnd("color set");
         console.time("autoscroll_exec");
         console.time("autoscroll");
         $("'.table-wrap tr:nth-child("+(pointer+1)+")'").addClass("pointer");
 
         $('.table-wrap').animate({//automatically scrolls to next time,
-            scrollTop: $("'.table-wrap tr:nth-child("+(pointer)+")'").position().top},400,'',function(){
+            scrollTop: $("'.table-wrap tr:nth-child("+(pointer)+")'").position().top},400,'swing',function(){
                 console.timeEnd("autoscroll");
         });
         console.timeEnd("autoscroll_exec");
         toolbar.render();
+        console.timeEnd('render');
+
     },
 });
 

@@ -6,6 +6,7 @@
 /*==============================================*/
 
 $bg: #2a363b;
+$h1:#00795C;
 $nav: #222b2f;
 $submit: #369350;
 $sept_orange: #f76225;
@@ -59,10 +60,6 @@ $switch_bg: #afaeae;
 /*=============== General ======================*/
 /*==============================================*/
 
-h1{
-	color: $white;
-}
-
 html, body
 {
   height: 100%;
@@ -71,15 +68,22 @@ html, body
 html{
   background-color: $bg;
 }
+
 body{
   background:none;
   position: relative;
 }
-
-.center{
-  margin-right: auto;
-  margin-left: auto;
-  text-align: center;
+h1{
+  color: $h1;
+  font-size: 2.4rem;
+  margin: 20px 0;
+}
+h2{
+  color:$white;
+}
+a{
+  text-decoration: none;
+  color: $white;
 }
 
 *:focus { outline: none; } /*removes blue glow from input*/
@@ -89,17 +93,26 @@ body{
 /*==============================================*/
 
 div.content{
-  background-color: rgba(105, 105, 105, 0.58);
-  padding: 10px 30px;
+  background-color: rgba(255, 255, 255, 0.63);
+  padding: 10px 60px;
   border-radius: 6px;
+  padding-bottom: 50px;
+  margin-bottom: 50px;
 
   p{
-    color: $white;
-    font-size: 1.1em;
-    line-height: 1.3em;
+    color: $nav;
+    font-size: 1.15em;
+    line-height: 1.5em;
+    padding-bottom: .3rem;
+    font-family: 'Source Sans Pro', sans-serif;
   }
 }
 
+.center{
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
 /*==============================================*/
 /*=============== Nav/header ===================*/
 /*==============================================*/
@@ -744,6 +757,24 @@ table th[class*="col-"] {
 
   nav:hover ul {
     display: block;
+  }
+
+
+
+  div.content{
+    padding: 10px 25px;
+    border-radius: 4px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+
+    h1{
+      margin: 10px 0;
+      font-size: 2.2rem;
+    }
+
+    p{
+
+    }
   }
 }
 

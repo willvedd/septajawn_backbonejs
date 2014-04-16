@@ -298,6 +298,7 @@ var ScheduleView = Backbone.View.extend({
         if(start_station.get('line')=='mf'){//sets the color of the schedule's header
             $('td.station').toggleClass('bs');
         };
+        toolbar.render();
         console.timeEnd('submit');
         console.timeEnd("color set");
         console.time("autoscroll_exec");
@@ -309,7 +310,7 @@ var ScheduleView = Backbone.View.extend({
                 console.timeEnd("autoscroll");
         });
         console.timeEnd("autoscroll_exec");
-        toolbar.render();
+        
         console.timeEnd('render');
 
     },

@@ -191,9 +191,15 @@ var GlobalView = Backbone.View.extend({
 
         var j = 0;
         window.pointer = 0;
+
+        console.log("Close time: "+start.get("close_wk"));
+
         for(i=0; i<(start_preschedule.length);i++){
-            if(start_preschedule[i]!=null){
+            if((start_preschedule[i]!=null)){
                 if(end_preschedule[i]!=null){
+                    // if( (start_preschedule!=null) && (start_preschedule[i]<start.get('close_wk'))) {
+                    //     console.log("CLOSED");
+                    // };
                     start_schedule[j] = timeformat(start_preschedule[i]);
                     end_schedule[j] = timeformat(end_preschedule[i]);
 

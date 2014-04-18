@@ -334,7 +334,11 @@ var ToolbarView = Backbone.View.extend({
 		this.$el.empty();
 		this.$el.append(this.template);
         $("#"+day).addClass("active");
-
+        console.time("cookie_check");
+        if(($.cookie.read('start_fav')==start_station.cid)&&($.cookie.read('end_fav')==end_station.cid)){//if particular pair already set to cookie, unfavorite
+            $('#fav').removeClass("fav_active");//remove toolbar highlight
+        };
+        console.timeEnd("cookie_check");
 		console.timeEnd('toolbar render');
 	},
 

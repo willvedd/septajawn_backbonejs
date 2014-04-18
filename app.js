@@ -146,6 +146,7 @@ var GlobalView = Backbone.View.extend({
         'click .branding a': 'reset',
         'click #reverse': 'reverse',
         'click #fav': 'favorite',
+
         'change input[type=checkbox]': 'lineset',
         'change #start_dest': 'endlineset',
         'change #end_dest': 'startlineset',
@@ -245,6 +246,11 @@ var GlobalView = Backbone.View.extend({
 
     favorite: function(){
         console.time("favorite");
+        if(($.cookie.read('start_fav')==start_station.cid)&&($.cookie.read('end_fav')==end_station.cid)){//if particular pair already set to cookie, unfavorite
+            $('#fav').removeClass("fav_active");//remove toolbar highlight
+            $.cookie.destroy('start_fav');
+            $.cookie.destroy('end_fav');
+        };
         $('#fav').addClass("fav_active");
         $.cookie.write('start_fav', start_station.cid, 24 * 60 * 60 *365);
         $.cookie.write('end_fav', end_station.cid, 24 * 60 * 60 *365);

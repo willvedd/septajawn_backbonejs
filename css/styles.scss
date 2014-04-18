@@ -106,6 +106,15 @@ div.content{
     padding-bottom: .3rem;
     font-family: 'Source Sans Pro', sans-serif;
   }
+  a{
+    transition: all 0.2s ease 0s;
+    -moz-transition: all 0.2s ease 0s;
+    -webkit-transition: all 0.2s ease 0s;
+
+    &:hover{
+      color: $sept_orange;
+    }
+  }
 }
 
 .center{
@@ -153,13 +162,20 @@ nav {
     font-size: 2.5rem!important;
     line-height: 2.5rem;
     font-family: 'machinescript',arial,sans-serif;
-    color: $white;
     display: table-cell;
     vertical-align: middle;
+    
 
     a{
-    color: #FFF;
+    color: $white;
     text-decoration: none;
+    transition: all 0.2s ease 0s;
+    -moz-transition: all 0.2s ease 0s;
+    -webkit-transition: all 0.2s ease 0s;
+
+      &:hover{
+        color:$switch_bg;
+      }
     }
   }
 
@@ -175,6 +191,13 @@ nav {
     font-size:1rem;
     padding: 0.5rem;
     font-weight: bold;
+    transition: all 0.2s ease 0s;
+    -moz-transition: all 0.2s ease 0s;
+    -webkit-transition: all 0.2s ease 0s;
+
+    &:hover{
+      color: $sept_orange;
+    }
     }
 
     a:hover#menu-icon {

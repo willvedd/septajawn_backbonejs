@@ -46,6 +46,42 @@ stations.fetch({
     },
 })
 
+
+
+//------------------------Status model and collection-------------------
+
+var Status = Backbone.Model.extend({
+    defaults:{
+        lat: null,
+        lon: null,
+        trainno: null,
+        service: null,
+        dest: null,
+        nextstop: null,
+        late: 0,
+        SOURCE: null,
+    }
+});
+
+var StatusList = Backbone.Collection.extend({
+    model: Status,
+    url: 'http://www3.septa.org/hackathon/TrainView'
+});
+
+var statuslist = new StatusList();
+
+console.time('status_fetch');
+statuslist.fetch({
+    dataType: 'jsonp',
+    success: function(){
+        console.timeEnd('status_fetch');
+        console.log("Successfully fetched statuslist");
+    },
+    error: function(){
+        console.log("Dind't successfully fetch statuslist");
+    },
+});
+
 //----------------------- Station View -------------------------------
 
 var StationView = Backbone.View.extend({

@@ -901,21 +901,26 @@ table th[class*="col-"] {
     display: block;
   }
 
-  /* line 787, styles.scss */
+  /* line 785, styles.scss */
+  button.tool {
+    font-size: 1em;
+  }
+
+  /* line 789, styles.scss */
   div.content {
     padding: 10px 25px;
     border-radius: 4px;
     padding-bottom: 30px;
     margin-bottom: 30px;
   }
-  /* line 793, styles.scss */
+  /* line 795, styles.scss */
   div.content h1 {
     margin: 10px 0;
     font-size: 2.2rem;
   }
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 807, styles.scss */
+  /* line 809, styles.scss */
   html {
     background: url(../img/bg1.jpg) no-repeat center center fixed;
     background-color: #2a363b;
@@ -925,12 +930,12 @@ table th[class*="col-"] {
     background-size: cover;
   }
 
-  /* line 815, styles.scss */
+  /* line 817, styles.scss */
   td.station {
     width: 47.5%;
   }
 
-  /* line 818, styles.scss */
+  /* line 820, styles.scss */
   td.chevron {
     width: 5%;
     padding: 0;

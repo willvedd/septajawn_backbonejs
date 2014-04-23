@@ -120,8 +120,14 @@ var StationListView = Backbone.View.extend({
         else{
         	var line = 'bs'
         };
+        if(this.cid == 'view0'){
+            var def_val = "Starting from..."
+        }
+        else if(this.cid == 'view1'){
+            var def_val = "Ending at..."
+        };
 
-        this.$el.append('<option disabled="disabled" selected="selected">Select station</option>');
+        this.$el.append('<option disabled="disabled" selected="selected">'+def_val+'</option>');
 
         this.collection.each(function(station) { //generates models from stations collection that correlate to correct station selection
             if ( (station.get('line') == line) ) {

@@ -177,12 +177,14 @@ nav {
 
   
 
-  ul {
+  ul.menu {
     display: table-cell;
     vertical-align: middle;
+    z-index: 99999;
+    background-color: $nav;
 
     a{
-    color: $switch_bg;
+    color: $white;
     text-decoration: none;
     font-size:1rem;
     padding: 0.5rem;

@@ -177,11 +177,9 @@ nav {
 
   
 
-  ul.menu {
+  ul {
     display: table-cell;
     vertical-align: middle;
-    z-index: 99999;
-    background-color: $nav;
 
     a{
     color: $white;
@@ -761,12 +759,12 @@ table th[class*="col-"] {
     display: none;
     position: absolute;
     padding: 20px;
-    background: #fff;
-    border: 5px solid #444;
-    right: 20px;
+    background: $nav;
+    right: 0px;
     top: 60px;
+    color: $white;
     width: 50%;
-    border-radius: 4px 0 4px 4px;
+    z-index: 99999;
   }
 
   nav li {

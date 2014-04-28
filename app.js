@@ -381,6 +381,10 @@ var ToolbarView = Backbone.View.extend({
 		console.time('toolbar render');
 		this.$el.empty();
 		this.$el.append(this.template);
+
+        var tableHeight =  $(window).height()-87-$('.table-header').height();
+        console.log("tableHeight:"+tableHeight);
+        $('.table-wrap').height(tableHeight);
         $("#"+day).addClass("active");
         console.time("cookie_check");
         if(($.cookie.read('start_fav')==start_station.cid)&&($.cookie.read('end_fav')==end_station.cid)){//if particular pair already set to cookie, unfavorite
@@ -413,6 +417,7 @@ $(function() {
     };
 
     window.day = day();
+
 
     time = function(){
     	var now = new Date();
@@ -462,6 +467,8 @@ $(function() {
     console.timeEnd('make toolbar view');
 
     console.timeEnd('load');
+
+    var portHeight = window.height();
 });
 
 

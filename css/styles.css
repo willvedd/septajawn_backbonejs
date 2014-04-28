@@ -233,7 +233,7 @@ nav #menu-icon {
 /*==============================================*/
 /* line 224, styles.scss */
 .platter select {
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   height: 40px;
   margin: 30px 0;
   position: relative;
@@ -894,31 +894,27 @@ table th[class*="col-"] {
   }
 
   /* line 778, styles.scss */
-  nav:hover ul {
-    display: block;
-  }
-
-  /* line 782, styles.scss */
   button.tool {
     font-size: .9em;
     padding: 0;
+    font-weight: bold;
   }
 
-  /* line 787, styles.scss */
+  /* line 784, styles.scss */
   div.content {
     padding: 10px 25px;
     border-radius: 4px;
     padding-bottom: 30px;
     margin-bottom: 30px;
   }
-  /* line 793, styles.scss */
+  /* line 790, styles.scss */
   div.content h1 {
     margin: 10px 0;
     font-size: 2.2rem;
   }
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 807, styles.scss */
+  /* line 804, styles.scss */
   html {
     background: url(../img/bg1.jpg) no-repeat center center fixed;
     background-color: #2a363b;
@@ -928,12 +924,12 @@ table th[class*="col-"] {
     background-size: cover;
   }
 
-  /* line 815, styles.scss */
+  /* line 812, styles.scss */
   td.station {
     width: 47.5%;
   }
 
-  /* line 818, styles.scss */
+  /* line 815, styles.scss */
   td.chevron {
     width: 5%;
     padding: 0;

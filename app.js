@@ -422,7 +422,7 @@ $(function() {
 
     time = function(){
     	var now = new Date();
-    	var hours = now.getHours();
+    	var hours = now.getHours(); 
     	if (hours == 0){
     		hours = 24;
     	};

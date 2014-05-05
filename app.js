@@ -80,8 +80,8 @@ statuslist.fetch({
     error: function(){
         console.log("Dind't successfully fetch statuslist");
     },
-});
-*/
+});*/
+
 //----------------------- Station View -------------------------------
 
 var StationView = Backbone.View.extend({
@@ -402,7 +402,6 @@ var ToolbarView = Backbone.View.extend({
 //---------------------Other code---------------------------------
 
 $(function() {
-    var window = {};
 
     day = function(){//returns "wk","sat","sun" depending on day of week
         var day = Date().split(" "); //Gets raw day of the week
@@ -422,7 +421,7 @@ $(function() {
 
     time = function(){
     	var now = new Date();
-    	var hours = now.getHours(); 
+    	var hours = now.getHours();
     	if (hours == 0){
     		hours = 24;
     	};
@@ -468,9 +467,6 @@ $(function() {
     console.timeEnd('make toolbar view');
 
     console.timeEnd('load');
-
-
-    var portHeight = $('window').height();
 });
 
 

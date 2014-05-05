@@ -50,7 +50,7 @@ stations.fetch({
 
 //------------------------Status model and collection-------------------
 
-var Status = Backbone.Model.extend({
+/*var Status = Backbone.Model.extend({
     defaults:{
         lat: null,
         lon: null,
@@ -81,7 +81,7 @@ statuslist.fetch({
         console.log("Dind't successfully fetch statuslist");
     },
 });
-
+*/
 //----------------------- Station View -------------------------------
 
 var StationView = Backbone.View.extend({

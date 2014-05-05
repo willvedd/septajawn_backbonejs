@@ -402,6 +402,7 @@ var ToolbarView = Backbone.View.extend({
 //---------------------Other code---------------------------------
 
 $(function() {
+    var window = {};
 
     day = function(){//returns "wk","sat","sun" depending on day of week
         var day = Date().split(" "); //Gets raw day of the week
@@ -468,7 +469,8 @@ $(function() {
 
     console.timeEnd('load');
 
-    var portHeight = window.height();
+
+    var portHeight = $('window').height();
 });
 
 

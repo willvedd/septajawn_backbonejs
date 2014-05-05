@@ -757,7 +757,7 @@ table th[class*="col-"] {
     line-height: 2.5em;
   }
 
-  nav ul, nav:active ul { 
+  nav ul{ 
     display: none;
     position: absolute;
     padding: 20px;
@@ -767,6 +767,10 @@ table th[class*="col-"] {
     color: $white;
     width: 50%;
     z-index: 99999;
+    border-radius:3px;
+  }
+  ul.active{
+      display:block!important;
   }
 
   nav li {
@@ -774,6 +778,9 @@ table th[class*="col-"] {
     width: 100%;
     padding: 10px 0;
     margin: 0;
+    a{
+      font-size: 1.25rem;
+    }
   }
 
   button.tool{

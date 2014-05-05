@@ -875,7 +875,7 @@ table th[class*="col-"] {
   }
 
   /* line 760, styles.scss */
-  nav ul, nav:active ul {
+  nav ul {
     display: none;
     position: absolute;
     padding: 20px;
@@ -885,38 +885,48 @@ table th[class*="col-"] {
     color: white;
     width: 50%;
     z-index: 99999;
+    border-radius: 3px;
   }
 
   /* line 772, styles.scss */
+  ul.active {
+    display: block!important;
+  }
+
+  /* line 776, styles.scss */
   nav li {
     text-align: center;
     width: 100%;
     padding: 10px 0;
     margin: 0;
   }
+  /* line 781, styles.scss */
+  nav li a {
+    font-size: 1.25rem;
+  }
 
-  /* line 779, styles.scss */
+  /* line 786, styles.scss */
   button.tool {
     font-size: .9em;
     padding: 0;
     font-weight: bold;
   }
 
-  /* line 785, styles.scss */
+  /* line 792, styles.scss */
   div.content {
     padding: 10px 25px;
     border-radius: 4px;
     padding-bottom: 30px;
     margin-bottom: 30px;
   }
-  /* line 791, styles.scss */
+  /* line 798, styles.scss */
   div.content h1 {
     margin: 10px 0;
     font-size: 2.2rem;
   }
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 805, styles.scss */
+  /* line 812, styles.scss */
   html {
     background: url(../img/bg1.jpg) no-repeat center center fixed;
     background-color: #2a363b;
@@ -926,12 +936,12 @@ table th[class*="col-"] {
     background-size: cover;
   }
 
-  /* line 813, styles.scss */
+  /* line 820, styles.scss */
   td.station {
     width: 47.5%;
   }
 
-  /* line 816, styles.scss */
+  /* line 823, styles.scss */
   td.chevron {
     width: 5%;
     padding: 0;

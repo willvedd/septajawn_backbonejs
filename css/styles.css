@@ -248,6 +248,10 @@ nav #menu-icon {
   position: relative;
 }
 /* line 233, styles.scss */
+.platter label {
+  display: none;
+}
+/* line 236, styles.scss */
 .platter .add-on {
   width: 40px;
   height: 40px;
@@ -256,14 +260,14 @@ nav #menu-icon {
   padding: 0;
 }
 
-/* line 242, styles.scss */
+/* line 245, styles.scss */
 .vert_center {
   position: absolute;
   width: 100%;
   top: 30%;
 }
 
-/* line 248, styles.scss */
+/* line 251, styles.scss */
 .overlay {
   position: absolute;
   top: 0;
@@ -277,18 +281,18 @@ nav #menu-icon {
 /*==============================================*/
 /*================ Buttons =====================*/
 /*==============================================*/
-/* line 262, styles.scss */
+/* line 265, styles.scss */
 button.hide {
   display: none !important;
 }
 
-/* line 265, styles.scss */
+/* line 268, styles.scss */
 .submit_wrapper {
   display: table;
   width: 100%;
 }
 
-/* line 269, styles.scss */
+/* line 272, styles.scss */
 a.submit {
   background: none repeat scroll 0 0 #369350;
   border: 0 none;
@@ -317,17 +321,17 @@ a.submit {
   -moz-transition: all 0.3s ease 0s;
   -webkit-transition: all 0.3s ease 0s;
 }
-/* line 296, styles.scss */
+/* line 299, styles.scss */
 a.submit:hover {
   background: none repeat scroll 0 0 #286e3c;
   color: white;
 }
-/* line 300, styles.scss */
+/* line 303, styles.scss */
 a.submit:active {
   background-color: #215b32;
 }
 
-/* line 305, styles.scss */
+/* line 308, styles.scss */
 button.tool {
   color: white;
   border: none;
@@ -338,34 +342,34 @@ button.tool {
   background-color: #979797;
   box-shadow: -1px 0 0 #616060;
 }
-/* line 318, styles.scss */
+/* line 321, styles.scss */
 button.tool.active {
   background-color: #616060 !important;
 }
-/* line 321, styles.scss */
+/* line 324, styles.scss */
 button.tool:hover {
   background-color: #8a8a8a;
 }
-/* line 324, styles.scss */
+/* line 327, styles.scss */
 button.tool#rst {
   background-color: #a05553 !important;
   margin-left: 3.5%;
   box-shadow: none;
 }
-/* line 329, styles.scss */
+/* line 332, styles.scss */
 button.tool#rst:hover {
   background-color: #8f4c4a !important;
 }
-/* line 333, styles.scss */
+/* line 336, styles.scss */
 button.tool#reverse {
   margin-left: 3.5%;
 }
-/* line 337, styles.scss */
+/* line 340, styles.scss */
 button.tool#fav.fav_active {
   color: #ffff94;
 }
 
-/* line 343, styles.scss */
+/* line 346, styles.scss */
 .toolbar {
   width: 100%;
 }
@@ -373,85 +377,85 @@ button.tool#fav.fav_active {
 /*==============================================*/
 /*=========== Results Table (mine) =============*/
 /*==============================================*/
-/* line 352, styles.scss */
+/* line 355, styles.scss */
 .table-header {
   margin-top: 30px;
   margin-bottom: 0 !important;
 }
-/* line 356, styles.scss */
+/* line 359, styles.scss */
 .table-header tr {
   font-size: 1.25rem;
 }
-/* line 360, styles.scss */
+/* line 363, styles.scss */
 .table-header td {
   text-align: center;
   width: 50%;
 }
-/* line 364, styles.scss */
+/* line 367, styles.scss */
 .table-header td.chevron {
   width: 10%!important;
   padding: 0;
 }
-/* line 368, styles.scss */
+/* line 371, styles.scss */
 .table-header td.station {
   width: 45%;
 }
-/* line 373, styles.scss */
+/* line 376, styles.scss */
 .table-header .station {
   font-size: 1.4rem;
   color: white;
   background-color: #0055a0;
 }
-/* line 378, styles.scss */
+/* line 381, styles.scss */
 .table-header .mf {
   background-color: #0055a0 !important;
 }
-/* line 381, styles.scss */
+/* line 384, styles.scss */
 .table-header .bs {
   background-color: #f76225 !important;
 }
 
-/* line 386, styles.scss */
+/* line 389, styles.scss */
 .table-wrap {
   max-height: 600px;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
 
-/* line 392, styles.scss */
+/* line 395, styles.scss */
 .table_and_tools {
   margin-top: 20px;
   margin-bottom: 0;
 }
 
-/* line 399, styles.scss */
+/* line 402, styles.scss */
 .times {
   background-color: white;
   color: black;
 }
-/* line 403, styles.scss */
+/* line 406, styles.scss */
 .times tr {
   font-size: 1.1rem;
 }
-/* line 407, styles.scss */
+/* line 410, styles.scss */
 .times td {
   text-align: center;
   width: 50%;
 }
 
-/* line 413, styles.scss */
+/* line 416, styles.scss */
 .warn {
   color: #a1504d !important;
   font-weight: bold;
 }
 
-/* line 418, styles.scss */
+/* line 421, styles.scss */
 .pointer {
   background-color: #fcfcb0 !important;
 }
 
 @media only screen and (max-width: 40.062em) {
-  /* line 424, styles.scss */
+  /* line 427, styles.scss */
   .table-wrap {
     max-height: 1200px;
   }
@@ -461,34 +465,34 @@ button.tool#fav.fav_active {
 /*==============================================*/
 /*===== Results Table (twitter bootstrap) ======*/
 /*==============================================*/
-/* line 436, styles.scss */
+/* line 439, styles.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 441, styles.scss */
+/* line 444, styles.scss */
 .table-hide {
   display: none;
 }
 
-/* line 444, styles.scss */
+/* line 447, styles.scss */
 table {
   max-width: 100%;
   background-color: transparent;
 }
 
-/* line 448, styles.scss */
+/* line 451, styles.scss */
 th {
   text-align: left;
 }
 
-/* line 451, styles.scss */
+/* line 454, styles.scss */
 .table {
   width: 100%;
 }
 
-/* line 459, styles.scss */
+/* line 462, styles.scss */
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th,
@@ -500,13 +504,13 @@ th {
   vertical-align: top;
 }
 
-/* line 464, styles.scss */
+/* line 467, styles.scss */
 .table > thead > tr > th {
   vertical-align: bottom;
   border-bottom: 2px solid #dddddd;
 }
 
-/* line 473, styles.scss */
+/* line 476, styles.scss */
 .table > caption + thead > tr:first-child > th,
 .table > colgroup + thead > tr:first-child > th,
 .table > thead:first-child > tr:first-child > th,
@@ -516,17 +520,17 @@ th {
   border-top: 0;
 }
 
-/* line 476, styles.scss */
+/* line 479, styles.scss */
 .table > tbody + tbody {
   border-top: 2px solid #dddddd;
 }
 
-/* line 479, styles.scss */
+/* line 482, styles.scss */
 .table .table {
   background-color: #f9f9f9;
 }
 
-/* line 487, styles.scss */
+/* line 490, styles.scss */
 .table-condensed > thead > tr > th,
 .table-condensed > tbody > tr > th,
 .table-condensed > tfoot > tr > th,
@@ -536,26 +540,26 @@ th {
   padding: 5px;
 }
 
-/* line 492, styles.scss */
+/* line 495, styles.scss */
 .table-striped > tbody > tr:nth-child(odd),
 .table-striped > tbody > tr:nth-child(odd) > th {
   background-color: #e4e4e4;
 }
 
-/* line 496, styles.scss */
+/* line 499, styles.scss */
 .table-hover > tbody > tr:hover > td,
 .table-hover > tbody > tr:hover > th {
   background-color: #f5f5f5;
 }
 
-/* line 499, styles.scss */
+/* line 502, styles.scss */
 table col[class*="col-"] {
   position: static;
   float: none;
   display: table-column;
 }
 
-/* line 505, styles.scss */
+/* line 508, styles.scss */
 table td[class*="col-"],
 table th[class*="col-"] {
   position: static;
@@ -563,7 +567,7 @@ table th[class*="col-"] {
   display: table-cell;
 }
 
-/* line 521, styles.scss */
+/* line 524, styles.scss */
 .table > thead > tr > td.active,
 .table > tbody > tr > td.active,
 .table > tfoot > tr > td.active,
@@ -579,7 +583,7 @@ table th[class*="col-"] {
   background-color: #f5f5f5;
 }
 
-/* line 527, styles.scss */
+/* line 530, styles.scss */
 .table-hover > tbody > tr > td.active:hover,
 .table-hover > tbody > tr > th.active:hover,
 .table-hover > tbody > tr.active:hover > td,
@@ -587,7 +591,7 @@ table th[class*="col-"] {
   background-color: #e8e8e8;
 }
 
-/* line 541, styles.scss */
+/* line 544, styles.scss */
 .table > thead > tr > td.success,
 .table > tbody > tr > td.success,
 .table > tfoot > tr > td.success,
@@ -603,7 +607,7 @@ table th[class*="col-"] {
   background-color: #dff0d8;
 }
 
-/* line 547, styles.scss */
+/* line 550, styles.scss */
 .table-hover > tbody > tr > td.success:hover,
 .table-hover > tbody > tr > th.success:hover,
 .table-hover > tbody > tr.success:hover > td,
@@ -611,7 +615,7 @@ table th[class*="col-"] {
   background-color: #d0e9c6;
 }
 
-/* line 561, styles.scss */
+/* line 564, styles.scss */
 .table > thead > tr > td.info,
 .table > tbody > tr > td.info,
 .table > tfoot > tr > td.info,
@@ -627,7 +631,7 @@ table th[class*="col-"] {
   background-color: #d9edf7;
 }
 
-/* line 567, styles.scss */
+/* line 570, styles.scss */
 .table-hover > tbody > tr > td.info:hover,
 .table-hover > tbody > tr > th.info:hover,
 .table-hover > tbody > tr.info:hover > td,
@@ -635,7 +639,7 @@ table th[class*="col-"] {
   background-color: #c4e3f3;
 }
 
-/* line 581, styles.scss */
+/* line 584, styles.scss */
 .table > thead > tr > td.warning,
 .table > tbody > tr > td.warning,
 .table > tfoot > tr > td.warning,
@@ -651,7 +655,7 @@ table th[class*="col-"] {
   background-color: #fcf8e3;
 }
 
-/* line 587, styles.scss */
+/* line 590, styles.scss */
 .table-hover > tbody > tr > td.warning:hover,
 .table-hover > tbody > tr > th.warning:hover,
 .table-hover > tbody > tr.warning:hover > td,
@@ -659,7 +663,7 @@ table th[class*="col-"] {
   background-color: #faf2cc;
 }
 
-/* line 601, styles.scss */
+/* line 604, styles.scss */
 .table > thead > tr > td.danger,
 .table > tbody > tr > td.danger,
 .table > tfoot > tr > td.danger,
@@ -675,7 +679,7 @@ table th[class*="col-"] {
   background-color: #f2dede;
 }
 
-/* line 607, styles.scss */
+/* line 610, styles.scss */
 .table-hover > tbody > tr > td.danger:hover,
 .table-hover > tbody > tr > th.danger:hover,
 .table-hover > tbody > tr.danger:hover > td,
@@ -684,7 +688,7 @@ table th[class*="col-"] {
 }
 
 @media (max-width: 767px) {
-  /* line 611, styles.scss */
+  /* line 614, styles.scss */
   .table-responsive {
     width: 100%;
     margin-bottom: 15px;
@@ -695,12 +699,12 @@ table th[class*="col-"] {
     -webkit-overflow-scrolling: touch;
   }
 
-  /* line 620, styles.scss */
+  /* line 623, styles.scss */
   .table-responsive > .table {
     margin-bottom: 0;
   }
 
-  /* line 628, styles.scss */
+  /* line 631, styles.scss */
   .table-responsive > .table > thead > tr > th,
   .table-responsive > .table > tbody > tr > th,
   .table-responsive > .table > tfoot > tr > th,
@@ -710,12 +714,12 @@ table th[class*="col-"] {
     white-space: nowrap;
   }
 
-  /* line 631, styles.scss */
+  /* line 634, styles.scss */
   .table-responsive > .table-bordered {
     border: 0;
   }
 
-  /* line 639, styles.scss */
+  /* line 642, styles.scss */
   .table-responsive > .table-bordered > thead > tr > th:first-child,
   .table-responsive > .table-bordered > tbody > tr > th:first-child,
   .table-responsive > .table-bordered > tfoot > tr > th:first-child,
@@ -725,7 +729,7 @@ table th[class*="col-"] {
     border-left: 0;
   }
 
-  /* line 647, styles.scss */
+  /* line 650, styles.scss */
   .table-responsive > .table-bordered > thead > tr > th:last-child,
   .table-responsive > .table-bordered > tbody > tr > th:last-child,
   .table-responsive > .table-bordered > tfoot > tr > th:last-child,
@@ -735,7 +739,7 @@ table th[class*="col-"] {
     border-right: 0;
   }
 
-  /* line 653, styles.scss */
+  /* line 656, styles.scss */
   .table-responsive > .table-bordered > tbody > tr:last-child > th,
   .table-responsive > .table-bordered > tfoot > tr:last-child > th,
   .table-responsive > .table-bordered > tbody > tr:last-child > td,
@@ -746,27 +750,27 @@ table th[class*="col-"] {
 /*==============================================*/
 /*=============== BSL/MFL Switch ===============*/
 /*==============================================*/
-/* line 663, styles.scss */
+/* line 666, styles.scss */
 .station_label {
   display: inline-block;
   color: #afaeae;
   font-size: 22px;
 }
-/* line 669, styles.scss */
+/* line 672, styles.scss */
 .station_label.mf {
   color: #0055a0;
 }
-/* line 672, styles.scss */
+/* line 675, styles.scss */
 .station_label.bs {
   color: #f76225;
 }
 
-/* line 676, styles.scss */
+/* line 679, styles.scss */
 .switch-wrapper {
   display: inline-block;
 }
 
-/* line 681, styles.scss */
+/* line 684, styles.scss */
 .onoffswitch {
   position: relative;
   width: 90px;
@@ -775,12 +779,12 @@ table th[class*="col-"] {
   -ms-user-select: none;
 }
 
-/* line 685, styles.scss */
+/* line 688, styles.scss */
 .onoffswitch-checkbox {
   display: none;
 }
 
-/* line 688, styles.scss */
+/* line 691, styles.scss */
 .onoffswitch-label {
   display: block;
   overflow: hidden;
@@ -789,7 +793,7 @@ table th[class*="col-"] {
   background-color: #afaeae;
 }
 
-/* line 695, styles.scss */
+/* line 698, styles.scss */
 .onoffswitch-inner {
   width: 200%;
   margin-left: -100%;
@@ -799,7 +803,7 @@ table th[class*="col-"] {
   transition: margin 0.3s ease-in 0s;
 }
 
-/* line 702, styles.scss */
+/* line 705, styles.scss */
 .onoffswitch-inner:before, .onoffswitch-inner:after {
   float: left;
   width: 50%;
@@ -815,19 +819,19 @@ table th[class*="col-"] {
   box-sizing: border-box;
 }
 
-/* line 712, styles.scss */
+/* line 715, styles.scss */
 .onoffswitch-inner:before {
   content: " ";
   padding-left: 10px;
 }
 
-/* line 716, styles.scss */
+/* line 719, styles.scss */
 .onoffswitch-inner:after {
   padding-right: 10px;
   text-align: right;
 }
 
-/* line 720, styles.scss */
+/* line 723, styles.scss */
 .onoffswitch-switch {
   width: 21px;
   margin: 4.5px;
@@ -843,12 +847,12 @@ table th[class*="col-"] {
   transition: all 0.3s ease-in 0s;
 }
 
-/* line 728, styles.scss */
+/* line 731, styles.scss */
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
   margin-left: 0;
 }
 
-/* line 731, styles.scss */
+/* line 734, styles.scss */
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
   right: 0px;
 }
@@ -857,7 +861,7 @@ table th[class*="col-"] {
 /*============== Media queries =================*/
 /*==============================================*/
 @media only screen and (max-width: 40.062em) {
-  /* line 741, styles.scss */
+  /* line 744, styles.scss */
   html {
     background: url(../img/bg_mobile.jpg) no-repeat center center fixed;
     background-color: #2a363b;
@@ -867,13 +871,13 @@ table th[class*="col-"] {
     background-size: cover;
   }
 
-  /* line 750, styles.scss */
+  /* line 753, styles.scss */
   .table-wrap {
     max-height: 1200px;
   }
 
   /*keeps table fixed to bottom for most mobile devices*/
-  /* line 754, styles.scss */
+  /* line 757, styles.scss */
   #menu-icon {
     display: inline-block !important;
     font-size: 2.5em;
@@ -881,7 +885,7 @@ table th[class*="col-"] {
     line-height: 2.5em;
   }
 
-  /* line 761, styles.scss */
+  /* line 764, styles.scss */
   nav ul {
     display: none;
     position: absolute;
@@ -895,45 +899,45 @@ table th[class*="col-"] {
     border-radius: 3px;
   }
 
-  /* line 773, styles.scss */
+  /* line 776, styles.scss */
   ul.active {
     display: block!important;
   }
 
-  /* line 777, styles.scss */
+  /* line 780, styles.scss */
   nav li {
     text-align: center;
     width: 100%;
     padding: 10px 0;
     margin: 0;
   }
-  /* line 782, styles.scss */
+  /* line 785, styles.scss */
   nav li a {
     font-size: 1.25rem;
   }
 
-  /* line 787, styles.scss */
+  /* line 790, styles.scss */
   button.tool {
     font-size: .9em;
     padding: 0;
     font-weight: bold;
   }
 
-  /* line 793, styles.scss */
+  /* line 796, styles.scss */
   div.content {
     padding: 10px 25px;
     border-radius: 4px;
     padding-bottom: 30px;
     margin-bottom: 30px;
   }
-  /* line 799, styles.scss */
+  /* line 802, styles.scss */
   div.content h1 {
     margin: 10px 0;
     font-size: 2.2rem;
   }
 }
 @media only screen and (min-width: 40.063em) {
-  /* line 813, styles.scss */
+  /* line 816, styles.scss */
   html {
     background: url(../img/bg1.jpg) no-repeat center center fixed;
     background-color: #2a363b;
@@ -943,12 +947,12 @@ table th[class*="col-"] {
     background-size: cover;
   }
 
-  /* line 821, styles.scss */
+  /* line 824, styles.scss */
   td.station {
     width: 47.5%;
   }
 
-  /* line 824, styles.scss */
+  /* line 827, styles.scss */
   td.chevron {
     width: 5%;
     padding: 0;

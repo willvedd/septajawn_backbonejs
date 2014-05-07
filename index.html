@@ -12,15 +12,15 @@
 </head>
 <body>
 	<div id="wrapper">
-		<header>
-	    <nav>
+		<header role="banner">
+	    <nav role="navigation">
 	      <div class="row"> 
 	        <div class="large-offset-1 large-10 medium-offset-1 medium-10 columns nav_contain">
 	            <span class="name branding"><a href="#">Septajawn</a></span>
-	            <ul class="menu">
+	            <ol class="menu">
 	            	<li><a href="feedback.html">Feedback</a></li>
 	             	<li><a href="about.html">About</a></li>
-	            </ul>
+	            </ol>
 	            <a href="#" class="icon-menu" id="menu-icon"></a>
 	          </div>
 	        </div>
@@ -50,10 +50,9 @@
 			<div class="row">
 				<div class="large-offset-2 large-4 medium-offset-2 medium-4 columns">
 					<div class="center">
-						<label for="start_dest">Starting station</label>
+						<label class="input" for="start_dest">Starting station</label>
 						<select id="start_dest" class="btn-gropu">
 							<option value="" disabled="disabled" selected="selected">Starting from...</option>
-
 							<script id="stationTemplate" type="text/template">
 								<%= name %>
 							</script>
@@ -62,7 +61,7 @@
 				</div>
 				<div class="large-4 medium-4 end columns">
 					<div class="center">
-						<label for="end_dest">Destination station</label>
+						<label class="input" for="end_dest">Destination station</label>
 						<select id="end_dest" class="btn-gropu">
 							<option value="" disabled="disabled" selected="selected">Ending at...</option>
 							<script id="stationTemplate" type="text/template">

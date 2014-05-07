@@ -180,7 +180,7 @@ nav {
 
   
 
-  ul {
+  ol {
     display: table-cell;
     vertical-align: middle;
 
@@ -230,7 +230,7 @@ nav {
     position: relative;
 
   }
-  label{
+  label.input{
     display:none;
   }
   .add-on{
@@ -761,7 +761,7 @@ table th[class*="col-"] {
     line-height: 2.5em;
   }
 
-  nav ul{ 
+  nav ol{ 
     display: none;
     position: absolute;
     padding: 20px;
@@ -773,7 +773,7 @@ table th[class*="col-"] {
     z-index: 99999;
     border-radius:3px;
   }
-  ul.active{
+  ol.active{
       display:block!important;
   }
 

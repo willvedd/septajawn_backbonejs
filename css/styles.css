@@ -202,12 +202,12 @@ nav .branding a {
   -webkit-transition: all 0.2s ease 0s;
 }
 /* line 183, styles.scss */
-nav ul {
+nav ol {
   display: table-cell;
   vertical-align: middle;
 }
 /* line 187, styles.scss */
-nav ul a {
+nav ol a {
   color: white;
   text-decoration: none;
   font-size: 1rem;
@@ -218,11 +218,11 @@ nav ul a {
   -webkit-transition: all 0.2s ease 0s;
 }
 /* line 197, styles.scss */
-nav ul a:hover {
+nav ol a:hover {
   color: #f76225;
 }
 /* line 202, styles.scss */
-nav ul a:hover#menu-icon {
+nav ol a:hover#menu-icon {
   background-color: #444;
   border-radius: 4px 4px 0 0;
 }
@@ -248,7 +248,7 @@ nav #menu-icon {
   position: relative;
 }
 /* line 233, styles.scss */
-.platter label {
+.platter label.input {
   display: none;
 }
 /* line 236, styles.scss */
@@ -886,7 +886,7 @@ table th[class*="col-"] {
   }
 
   /* line 764, styles.scss */
-  nav ul {
+  nav ol {
     display: none;
     position: absolute;
     padding: 20px;
@@ -900,7 +900,7 @@ table th[class*="col-"] {
   }
 
   /* line 776, styles.scss */
-  ul.active {
+  ol.active {
     display: block!important;
   }
 
